@@ -9,16 +9,16 @@ Projet : Réseau Social des Artistes
 Twitter ou Facebook ne pourra pas toujours conserver son statut de leader du marché en termes de communication sociale. Il est temps de mettre fin à ce monopole. Je vous présente ArtIIste, l’application qui copie tout de twitter et Facebook et qui va leur voler tout le marché.
 ## Pré-requis
 Comme pour tous les sujets, on devra au moins retrouver dans l’application finale les parties suivantes :
-Une authentification
-Un compte administrateur donnant les droits à certaines fonctionnalités (au choix)
-Un profil artiste éditable
-Une base de données relationnelle :
-au moins 3 tables
-au moins une table de jointure ( n…n)
-au moins une jointure dans une requête
-des INSERT, DELETE, UPDATE, SELECT
-Un CRUD (Create Read Update Delete)
-Du javascript (au minimum validation JS des formulaires)
+- Une authentification
+- Un compte administrateur donnant les droits à certaines fonctionnalités (au choix)
+- Un profil artiste éditable
+- Une base de données relationnelle :
+- au moins 3 tables
+- au moins une table de jointure ( n…n)
+- au moins une jointure dans une requête
+- des INSERT, DELETE, UPDATE, SELECT
+- Un CRUD (Create Read Update Delete)
+- Du javascript (au minimum validation JS des formulaires)
 Nous attendons de la part des élèves une véritable appropriation du sujet. Il ne suffira pas de remplir des cases à cocher pour avoir la moyenne, nous voulons voir une démarche d’ingénieur, pas d’exécutant.
 ## Objectifs
 Proposer une application qui va permettre aux artistes de communiquer via des messages augmentés.
