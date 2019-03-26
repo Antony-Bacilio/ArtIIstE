@@ -1,11 +1,11 @@
 # ArtIIstE
 Réseau Social d'Artistes - Projet Web - S2
 
-CAHIER DE CHARGES
+# CAHIER DE CHARGES
 
-Projet : Réseau Social des Artistes
+## Projet : Réseau Social des Artistes
 
-Contexte du projet
+## Contexte du projet
 Twitter ou Facebook ne pourra pas toujours conserver son statut de leader du marché en termes de communication sociale. Il est temps de mettre fin à ce monopole. Je vous présente ArtIIste, l’application qui copie tout de twitter et Facebook et qui va leur voler tout le marché.
 Pré-requis
 Comme pour tous les sujets, on devra au moins retrouver dans l’application finale les parties suivantes :
