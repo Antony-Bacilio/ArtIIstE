@@ -18,6 +18,14 @@ class User
      */
     private $lastname;
 
+    private $mail;
+
+    private $mdp;
+
+    private $sexe;
+
+    private $art;
+
     /**
      * @var \DateTimeInterface
      */
@@ -26,6 +34,7 @@ class User
     /**
      * @return int
      */
+
     public function getId()
     {
         return $this->id;
@@ -77,10 +86,54 @@ class User
         return $this;
     }
 
+    public function getEmail()
+    {
+        return $this->mail;
+    }
+
+    public function setEmail($mail)
+    {
+        $this->mail = $mail;
+        return $this;
+    }
+
+    public function getMdp()
+    {
+        return $this->mdp;
+    }
+
+    public function setMdp($mdp)
+    {
+        $this->mdp = $mdp;
+        return $this;
+    }
+
+    public function getSex()
+    {
+        return $this->sexe;
+    }
+
+    public function setSex($sexe)
+    {
+        $this->sexe = $sexe;
+        return $this;
+    }
+
+    public function getArt()
+    {
+        return $this->art;
+    }
+
+    public function setArt($art)
+    {
+        $this->art = $art;
+        return $this;
+    }
+
     /**
      * @return \DateTimeInterface
      */
-    public function getBirthday(): \DateTimeInterface
+    public function getBirthday()
     {
         return $this->birthday;
     }
@@ -89,7 +142,7 @@ class User
      * @param \DateTimeInterface $birthday
      * @return User
      */
-    public function setBirthday(\DateTimeInterface $birthday)
+    public function setBirthday($birthday)
     {
         $this->birthday = $birthday;
         return $this;
