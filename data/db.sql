@@ -10,4 +10,3 @@ CREATE TABLE "user" (
 );
 
 INSERT INTO "user"(firstname, lastname, mail,mdp, birthday, sexe, art) VALUES ('Lucas', 'Herfort', 'lucas.herfort@gmail.com', 'exr29247', '1997-08-22','M','Musique');
-INSERT INTO "user"(firstname, lastname, mail,mdp, birthday, sexe, art) VALUES ('Camille', 'Herfort', 'camille.herfort@gmail.com', 'football33', '2001-06-06','M','Musique');
