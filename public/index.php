@@ -34,14 +34,6 @@ if(isset($_POST['Connexion']))
             $_SESSION['mail'] = $userinfo['mail'];
             header("Location: profil.php?id=".$_SESSION['id']);
         }
-        else
-        {
-            $erreurconnect = "e-mail ou mot de passe incorrect !";
-        }
-    }
-    else
-    {
-        $erreurconnect = "Tous les champs doivent être complétés !";
     }
 }
 
@@ -55,22 +47,13 @@ if(isset($_POST['forminscription']))
     $nom = htmlspecialchars($_POST['nom']);
     $mail = htmlspecialchars($_POST['email']);
     $mdp = htmlspecialchars($_POST['mdp']);
-    $date = $_POST['date'];
-    $sexe = $_POST['sexe'];
-    $art =  $_POST['art'];
 
-    if($sexe == "homme")
+    if(!empty($prenom) AND !empty($nom) AND !empty($mail) AND !empty($mdp) AND !empty($_POST['date']) AND !empty($_POST['sexe']) AND !empty($_POST['art']))
     {
-        $sexe = "M";
-    }
-    else
-    {
-        $sexe = "F"; 
-    }
-
-
-    if(!empty($prenom) AND !empty($nom) AND !empty($mail) AND !empty($mdp) AND !empty($date) AND !empty($sexe) AND !empty($art))
-    {
+        $sexe = $_POST['sexe'];
+        $date = $_POST['date'];
+        $art =  $_POST['art'];
+        
         if(strlen($prenom) <= 30)
         {
             if(strlen($nom) <= 30)
@@ -112,63 +95,47 @@ if(isset($_POST['forminscription']))
 <head>
     <meta charset="utf-8">
     <title>ArtIIstE</title>
+    <link rel="stylesheet" type="text/css" href="StyleIndex.css">
 </head>
 <body>
-    <div align="left">
-        <h2>Connexion</h2>
-        <br/>
+    <div id="header_wrapper">
+        <div id="header">
+        <li id="sitename"><a href="">ArtIIstE</a></li>
         <form method="POST" action="">
-            <input type="email" placeholder="Adresse e-mail" name="emailconnect" autocomplete="off"/>
-            <br/>
-            <input type="password" placeholder="Mot de passe" name="mdpconnect"/>
-            <br/>
-            <input type="submit" value="Connexion" name="Connexion">
+            <li>Adresse e-mail<br><input type="email" name="emailconnect" autocomplete="off"></li>
+            <li>Mot de passe<br><input type="password" name="mdpconnect"/><br></li>
+            <li><input type="submit" value="Connexion" name="Connexion"></li>
+            <br>
         </form>
-        <?php 
-        if(isset($erreurconnect))
-        {
-            echo '<font color="red">'.$erreurconnect.'</font>';
-        }
-        ?>
-        <br/>
-        <br/>
-        <h2>Inscription</h2>
-        <br/>
-        <form method="POST" action="">
-            <input type="text" placeholder="Nom" name="nom" autocomplete="off"/>
-            <br/>
-            <input type="text" placeholder="Prénom" name="prénom" autocomplete="off"/>
-            <br/>
-            <input type="email" placeholder="Adresse e-mail" name="email" autocomplete="off"/>
-            <br/>
-            <input type="password" placeholder="Mot de passe" name="mdp"/>
-            <br/>
-            <input type="date" name="date"/>
-            <br/>
-            <input type="radio" name= "sexe" value="homme" checked>Homme
-            <input type="radio" name= "sexe" value="femme">Femme
-            <br/>
-            Art :
-            <select name="art">
-                <option value="empty" selected></option> 
-                <option value="architecture">Architecture</option> 
-                <option value="sculpture">Sculpture</option>
-                <option value="peinture">Peinture</option>
-                <option value="musique">Musique</option>
-                <option value="cinéma">Cinéma</option>
-            </select>
-            <br/>
-            <input type="submit" value="Inscription" name="forminscription">
-        </form>
-        <?php 
-        if(isset($erreur))
-        {
-            echo '<font color="red">'.$erreur.'</font>';
-        }
-        ?>
+        </div>
     </div>
-    <br/>
-    <div class="container">
+    
+    <div id="wrapper">
+        <div id="div1">
+            <h1>Créer un compte</h1>
+            <p>C’est gratuit (ça ne le restera pas toujours).</p>
+            <form method="POST" action="">
+            <li><input type="text" placeholder="Prénom" name="prénom" autocomplete="off"></li>
+            <li><input type="text" placeholder="Nom" name="nom" autocomplete="off"></li>
+            <li><input type="email" placeholder="Adresse e-mail" name="email" autocomplete="off"/></li>
+            <li><input type="password" placeholder="Mot de passe" name="mdp"/></li>
+            <p>Date de naissance</p>
+            <li><input type="date" name="date"/></li>
+            <li><input type="radio" name="sexe">Homme<input type="radio" name="sexe">Femme</li>
+            <p>Votre passion :</p> 
+            <li><select name="art"><option selected></option><option>Architecture</option><option>Sculpture</option>option>Peinture</option><option>Musique</option><option>Cinéma</option><option>Sport</option></select><br><br></li>      
+            <li><input type="submit" value="Inscription" name="forminscription"></li>
+            <?php 
+            if(isset($erreur))
+            {
+                echo '<font color="red">'.$erreur.'</font>';
+            }
+            ?>
+            </form>
+        </div>
+    </div>
+    
+    <div id="footer_wrapper">
         <table class="table table-bordered table-hover table-striped">
           <thead style="font-weight: bold">
                <td>#</td>
