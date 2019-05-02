@@ -2,10 +2,7 @@
 session_start(); 
 require '../vendor/autoload.php';
 require 'config.php';
-
-
 // Connnexion
-
 if(isset($_POST['signIn']))
 {
     $mailconnect = htmlspecialchars($_POST['logEmail']);
@@ -38,8 +35,6 @@ if(isset($_POST['signUp']))
     $sexe = $_POST['sexe'];
     $Birth = $_POST['Birth'];
 
-    
-
     if(!empty($firstName) AND !empty($lastName) AND !empty($mail) AND !empty($passwd) AND !empty($Birth) AND !empty($sexe) )
     {
               
@@ -54,7 +49,6 @@ if(isset($_POST['signUp']))
                 {
                     $insertmbr = $connection->prepare('INSERT INTO "user" (firstname, lastname, mail,passwd, birthday, sexe) VALUES (?,?,?,?,?,?)');
                     $insertmbr->execute(array($firstName,$lastName,$mail,$passwd,$Birth,$sexe));
-	             header("Location: profil.php?id=".$_SESSION['id']);
                     $error= "Votre compte a bien été créé !";
                     
                 }
