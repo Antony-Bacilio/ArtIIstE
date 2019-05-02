@@ -19,7 +19,6 @@ class UserRepository
     public function fetchAll()
     {
         $rows = $this->connection->query('SELECT * FROM "user"')->fetchAll(\PDO::FETCH_OBJ);
-
         $users = [];
         foreach ($rows as $row) {
             $user = new User();
@@ -27,14 +26,13 @@ class UserRepository
                 ->setId($row->id)
                 ->setFirstname($row->firstname)
                 ->setLastname($row->lastname)
-                ->setEmail($row->mail)
-                ->setMdp($row->mdp)
-                ->setBirthday($row->birthday)
-                ->setSex($row->sexe)
-                ->setArt($row->art);
+                ->setBirthday(new \DateTimeImmutable($row->birthday));
 
             $users[] = $user;
         }
+
         return $users;
     }
+
+
 }
