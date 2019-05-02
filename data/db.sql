@@ -1,12 +1,20 @@
 CREATE TABLE "user" (
     id SERIAL PRIMARY KEY ,
-    firstname VARCHAR(30),
-    lastname VARCHAR(30),
-    mail VARCHAR NOT NULL,
-    mdp VARCHAR NOT NULL,
+    firstname VARCHAR NOT NULL ,
+    lastname VARCHAR NOT NULL ,
+    mail     VARCHAR NOT NULL,
+    passwd   VARCHAR NOT NULL,
     birthday date,
-    sexe CHAR NOT NULL,
-    art VARCHAR 
+    Sexe Varchar NOT NULL,
+    city Varchar,
+    description Varchar,
+    avatar Varchar
+
 );
 
-INSERT INTO "user"(firstname, lastname, mail,mdp, birthday, sexe, art) VALUES ('Lucas', 'Herfort', 'lucas.herfort@gmail.com', 'exr29247', '1997-08-22','M','Musique');
+INSERT INTO "user"(firstname, lastname,mail,passwd, birthday,sexe) VALUES ('John', 'Doe','john.doe@gmail.com','123','1967-11-22','Male');
+INSERT INTO "user"(firstname, lastname,mail,passwd, birthday,sexe) VALUES ('Imane', 'Elmoul','imane.elmoul@gmail.com','567','1997-04-24','Female');
+
+
+
+

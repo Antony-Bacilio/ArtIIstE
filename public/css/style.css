@@ -1,0 +1,119 @@
+body{
+
+background-image:url(../images/background.jpg);
+background-size: cover;
+background-repeat:no-repeat;
+background-attachment: fixed;
+background-position: center;
+padding:0px;
+margin:0px;
+
+}
+/*header style*/
+#logo{
+
+	 font-weight: bold;
+	 font-size:40pt;
+	 color: #330033;
+	margin:5px 21px;;
+
+
+}
+#logo span{
+
+	font-size:20pt;
+	font-weight: normal;
+	font-style:italic;
+
+}
+#signInbox{
+        width: 37%;
+	position: absolute;
+	left: 62%;
+	top: 22px;
+}
+#signInbox input[type="email"], #signInbox input[type="password"]{
+
+	background-color:#C8C6C7;
+	color:#330033;
+	padding:9px;
+	border-radius:20px;
+	width:210px;
+}
+#signInbox input[type="submit"]{
+
+	padding: 7px;
+	width: 88px;
+	background-color:#330033;
+	color:#fff;
+	cursor:pointer;
+	transition:0.5s;
+	border-radius:20px;
+}
+#signInbox input[type="submit"]:hover{
+	background-color:#C8C6C7;
+	color:#330033;
+
+}
+
+/*form style*/
+.logbox{
+
+	background-color: rgba(255,255,255,0.9);
+	top: 12%;
+	left: 33%;
+	position: absolute;
+	padding: 8px 72px;
+
+}
+#logform p,input{
+
+	font-weight:bold;
+
+}
+.logbox>p {
+
+	font-size:22pt;
+	color: #330033;
+
+}
+.label{
+   margin-bottom:10px;
+   margin-left:0px;
+   color:#330033;
+   font-weight:bold;
+}
+#logform input[type="text"],#logform input[type="password"],#logform input[type="email"],#logform input[type="number"]{
+
+	width:100%;
+	padding:7px;
+	border-style: none none solid none;
+	border-color: rgba(0,0,0,0.5);
+	background-color: transparent;
+}
+
+
+#logform input[type="submit"]{
+
+	margin: 24px auto;
+	display: block;
+	width: 176px;
+	background-color:#330033;
+	padding:11px;
+	color:#fff;
+	font-size:20px;
+	border-radius:20px;
+	cursor:pointer;
+	transition:0.5s;
+}
+#logform input[type="submit"]:hover{
+
+	background-color:#fff;
+	color:#330033;
+
+}
+
+
+
+
+

@@ -1,50 +1,56 @@
-<?php
-session_start();
+<?php 
+require 'config.php';
+include("ArtistModel.php");
+if (isset($_GET['id']) && $_GET['id'] >0){
 
-require '../vendor/autoload.php';
+	$id = intval($_GET['id']);
+	$requser = $connection->prepare('SELECT * FROM "user" WHERE id = ? ');
+        $requser->execute(array($id));
+        $userinfo = $requser->fetch();
 
-//postgres
-$dbName = getenv('DB_NAME');
-$dbUser = getenv('DB_USER');
-$dbPassword = getenv('DB_PASSWORD');
-
-$connection = new PDO("pgsql:host=postgres user=$dbUser dbname=$dbName password=$dbPassword");
-
-if(isset($_GET['id']) AND isset($_GET['id']) > 0)
-{
-    $getid = intval($_GET['id']);
-    $requser = $connection->prepare('SELECT * FROM "user" WHERE id = ?');
-    $requser->execute(array($getid));
-    $userinfo = $requser->fetch();
-
-?>
-
-<html lang="fr">
-<head>
-    <meta charset="utf-8">
-    <title>ArtIIstE</title>
-</head>
-<body>
-    Nom : <?php echo $userinfo['lastname']; ?>
-    <br />
-    Prénom : <?php echo $userinfo['firstname']; ?>
-    <br />
-    Adresse mail : <?php echo $userinfo['mail']; ?>
-    <br />
-    Art : <?php echo $userinfo['art']; ?>
-    <br />
-    <?php
-    if(isset($_SESSION['id']) AND $userinfo['id'] == $_SESSION['id'])
-    {
-    ?>
-    <a href="#">Editer mon profil</a>
-    <br />
-    <a href="deconnection.php">Déconnection</a>
-    <?php
-    }
-    ?> 
-</body>
-</html>
-<?php
 }
 ?>
+<!DOCTYPE html>
+<html>
+<head>
+    <title>ArtIIstE</title>
+    <link rel="stylesheet" href="css/styleprofil.css">
+</head>
+
+<body>
+
+<header>
+      <div id="user-informations">
+<form method="POST">
+
+	  	<button type="submit" name="logOut">
+			<img src="images/logout.png" id="logOut">
+		</button> 
+</form>
+
+	<?php 
+	if(!empty($userinfo['avatar']))
+	{?>
+	<img id="avatar" src="users/avatar/<?php echo$userinfo['avatar']?>">
+	<?php 
+	} else {
+	?>	
+	<img id="avatar" src="images/avatar.png">
+	<?php
+	}
+	?>
+	<p id="name"><?php echo $userinfo['firstname']." ". $userinfo['lastname'];?></p>
+      </div>
+</header>
+<div id="informations">
+	<nav>
+	     <ul>
+		<li><a href ="editProfil.php"id="editProfil">Modifier</a></li>
+		<li><a href ="" id="followers">Abonnées</a></li>
+		<li><a href="" id="following">Abonnements</a></li>
+	     </ul>
+	</nav>
+</div>
+</body>
+</html>
+
