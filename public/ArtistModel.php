@@ -120,6 +120,50 @@ if(isset($_POST['save'])){
 
 		}
 	}
+if(isset ($_FILES['cover']) AND !empty($_FILES['cover']['name'])){
+
+		//taille maximum d'un fichier qu'on peut importer
+		$maxSize= 2097152;
+
+		//les extentions valides des images
+		$validExtensions=Array('png','jpg','gif','jpeg');
+
+		if($_FILES['cover']['size']<=$maxSize){
+
+			//extraire l'extentrion du fichier importer par l'utilisateur et la transformer en miniscule
+			$extensionUpload= strtolower(substr(strrchr($_FILES['cover']['name'],'.'),1));
+
+			if(in_array($extensionUpload,$validExtensions)){
+			
+				$path="users/cover/".$_SESSION['id'].".".$extensionUpload;
+				$move=move_uploaded_file($_FILES['cover']['tmp_name'],$path);
+				if($move){
+					$updateCover=$connection->prepare('UPDATE "user" SET cover = :cover WHERE id = :id');
+					$updateCover->execute(array(
+					    'cover' => $_SESSION['id'].".".$extensionUpload,
+					    'id' =>$_SESSION['id']	
+
+					));
+
+				}else{
+					
+				   echo "Erreur pendant l'importation de votre photo"	;			
+	
+				}
+
+			}
+			else{
+				echo "votre photo doit ếtre au format jpg, jpeg,png ou gif";
+
+			}
+
+		}
+		else{
+
+			echo"votre photo ne doit pas dépasser 2 Mo";
+
+		}
+	}
 
 	//modification des autes informations
 		    $newFirstName = htmlspecialchars($_POST['newFirstname']);

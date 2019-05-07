@@ -8,12 +8,13 @@ CREATE TABLE "user" (
     Sexe Varchar NOT NULL,
     city Varchar,
     description Varchar,
-    avatar Varchar
+    avatar Varchar,
+    cover Varchar
 
 );
 
-INSERT INTO "user"(firstname, lastname,mail,passwd, birthday,sexe) VALUES ('John', 'Doe','john.doe@gmail.com','123','1967-11-22','Male');
 INSERT INTO "user"(firstname, lastname,mail,passwd, birthday,sexe) VALUES ('Imane', 'Elmoul','imane.elmoul@gmail.com','567','1997-04-24','Female');
+
 
 
 

@@ -1,7 +1,7 @@
 <?php
 include("ArtistModel.php");
 
-include("ArtistView.php")?>
+include("ArtistView.php");
 
 
 

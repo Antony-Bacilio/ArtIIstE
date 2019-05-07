@@ -19,7 +19,16 @@ if (isset($_GET['id']) && $_GET['id'] >0){
 
 <body>
 
-<header>
+<?php 
+if(empty($userinfo['cover']))
+{?>
+<header style="background-image:url('../images/cover.jpg');">
+<?php 
+}else{?>
+<header style="background-image:url('<?php echo '../users/cover/'.$userinfo['cover'] ; ?>');">
+<?php
+}
+?>
       <div id="user-informations">
 <form method="POST">
 

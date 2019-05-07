@@ -5,7 +5,6 @@ require 'config.php';
 	$requser = $connection->prepare('SELECT * FROM "user" WHERE id = ? ');
         $requser->execute(array($id));
         $userinfo = $requser->fetch();
-
 ?>
 <!DOCTYPE html>
 <html>
@@ -16,7 +15,16 @@ require 'config.php';
 
 <body>
 
-<header>
+<?php 
+if(empty($userinfo['cover']))
+{?>
+<header style="background-image:url('../images/cover.jpg');">
+<?php 
+}else{?>
+<header style="background-image:url('<?php echo '../users/cover/'.$userinfo['cover'] ; ?>');">
+<?php
+}
+?>
       <div id="user-informations">
 <form method="POST">
 
@@ -47,10 +55,12 @@ require 'config.php';
 	     </ul>
 	</nav>
 </div>
-
-<form method="POST" name="modify" enctype="multipart/form-data">
+<div id="modify">
+<form method="POST" name="modify" enctype="multipart/form-data" id="modify-form">
 			 <p class="label">Changer la photo de profil</p>
 			 <input type="file" name="avatar"  >
+			<p class="label">Changer la photo de couverture</p>
+			 <input type="file" name="cover"  >
 			<p class="label">First Name</p>
 			 <input type="text" value="<?php echo $userinfo['firstname'];?>" name="newFirstname"><br>
 			 <p class="label">Last Name</p>
@@ -70,7 +80,7 @@ require 'config.php';
   			<input type="submit" name="save" value="Enregistrer" onClick="alert('êtes-vous sûr ?')"> 
 </form>
 
-
+</div>
 
 
 

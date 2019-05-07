@@ -1,7 +1,12 @@
 body{
 
-	margin:0;
-	padding:0;
+background-image:url(../images/background.jpg);
+background-size: cover;
+background-repeat:no-repeat;
+background-attachment: fixed;
+background-position: center;
+padding:0px;
+margin:0px;
 
 }
 header{
@@ -13,7 +18,7 @@ header{
 	background-image:url("../images/cover.jpg");
 
 }
-
+/*PAGE DE PROFIL*/
 #user-informations{
 
 	position:absolute;
@@ -87,7 +92,50 @@ button{
 	width:30px;
 
 }
+/*EDIT PROFIL*/
 
+.label{
+
+font-size: 12pt;
+font-weight: bold;
+	color:#330033;
+
+}
+#modify-form{
+
+	background-color: rgba(255,255,255,0.9);
+	top: 55%;
+	left: 33%;
+	position: absolute;
+	padding: 8px 72px;
+
+}
+input,textarea{
+
+	background-color:#C8C6C7;
+	color:#330033;
+	padding:12px;
+	width:100%;
+font-weight: bold;
+
+
+}
+
+input[type="submit"]{
+margin: 15px 34%;
+width: 147px;
+padding: 15px;
+border-radius: 15px;
+font-weight: bold;
+cursor: pointer;
+font-size: 13pt;
+transition:0.5s;
+
+}
+input[type="submit"]:hover{
+background-color:#330033;
+color:#C8C6C7;
+}
 
 
 
