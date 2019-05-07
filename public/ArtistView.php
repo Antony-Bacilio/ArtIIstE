@@ -4,6 +4,7 @@
     <title>ArtIIstE</title>
     <link rel="stylesheet" href="css/style.css">
 </head>
+
 <body>
 <header>
 	<div id="logo"> ArtIIstE  <span> Share your colors...</span></div>
@@ -14,7 +15,7 @@
 			<input type="password" placeholder="Password" name="logPassw">
 			<input type="submit" name="signIn" value="Sign In">
 		</form>
-			<?php if(isset($_POST['signIn'])) {echo "<p id=\"error_1\">".$error_1."</p>";}?>
+			<?php if(isset($_POST['signIn'])) {echo "<p id=\"msgWarning\">".$msgWarning."</p>";}?>
 	</div>
 </header>
 

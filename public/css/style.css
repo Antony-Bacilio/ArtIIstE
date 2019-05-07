@@ -120,10 +120,11 @@ margin:0px;
    
 
 }
-#error_1{
+#msgWarning{
 
 	font-size:11pt;
 	font-weight: bold;
+	/*text-align: center;*/
 
    
 
