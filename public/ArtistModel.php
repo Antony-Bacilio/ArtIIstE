@@ -23,9 +23,9 @@ if(isset($_POST['signIn'])){
             header("Location: profil.php?id=".$_SESSION['id']);
 		}
 		
-		else $msgWarning="Veuillez vérifier votre login ou password";
+		else $msgWarning="Veuillez vérifier votre login ou password !";
 	}
-	else $msgWarning="Connectez vous!";
+	else $msgWarning="Tous les champs doivent être complétés !";
 }
 
 /*****************************  F O R M U L A I R E   D ' I N S C R I P T I O N  ***************************************/
@@ -36,12 +36,11 @@ if(isset($_POST['signUp'])){
     $lastName = htmlspecialchars($_POST['lastname']);
     $mail = htmlspecialchars($_POST['email']);
     $passwd = htmlspecialchars($_POST['password']);
-    $sexe = isset($_POST['sexe']);
-    $Birth = $_POST['Birth'];
+    $sexe = $_POST['sexe'];
+	$Birth = $_POST['Birth'];
 
     if(!empty($firstName) AND !empty($lastName) AND !empty($mail) AND !empty($passwd) AND !empty($Birth) AND !empty($sexe) )
     {
-              
         if(strlen($firstName) <= 30)
         {
             if(strlen($lastName) <= 30)

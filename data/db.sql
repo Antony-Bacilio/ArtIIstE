@@ -5,7 +5,7 @@ CREATE TABLE "user" (
     mail     VARCHAR NOT NULL,
     passwd   VARCHAR NOT NULL,
     birthday date,
-    Sexe Varchar NOT NULL,
+    sexe Varchar NOT NULL,
     city Varchar,
     description Varchar,
     avatar Varchar,

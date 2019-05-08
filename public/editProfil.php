@@ -53,6 +53,7 @@ require 'config.php';
 	<div id="informations">
 		<nav>
 			<ul>
+			<li><a href ="editProfil.php"id="editProfil">Modifier</a></li>
 			<li><a href ="" id="followers">Abonnées</a></li>
 			<li><a href="" id="following">Abonnements</a></li>
 			</ul>
@@ -74,7 +75,7 @@ require 'config.php';
 			<p class="label">email</p>
 			<input type="email" value="<?php echo $userinfo['mail'];?>" name="newMail"><br>
 			<p class="label">Birthday</p>
-			<input type="text" value="<?php echo $userinfo['birthday'];?>" name="newBirth"><br>
+			<input type="date" value="<?php echo $userinfo['birthday'];?>" name="newBirth"><br>
 			<p class="label">sexe</p>
 			<input type="text" value="<?php echo $userinfo['sexe'];?>" name="newSexe"><br>
 			<p class="label">Ville</p>

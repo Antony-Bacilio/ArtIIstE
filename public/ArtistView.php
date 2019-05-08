@@ -11,7 +11,7 @@
 
 	<div id="signInbox">
 		<form name="signIn" method="POST" id="signInform" ">
-			<input type="email" placeholder="Email" name="logEmail">
+			<input type="email" placeholder="Email" name="logEmail" autocomplete="off">
 			<input type="password" placeholder="Password" name="logPassw">
 			<input type="submit" name="signIn" value="Sign In">
 		</form>
@@ -23,18 +23,18 @@
 	<p>Join Us</p>
 		<form name="signIn" method="POST" id="logform"">
 			 <p class="label">First Name</p>
-			 <input type="text" placeholder="Enter First name" name="firstname"><br>
+			 <input type="text" placeholder="Enter First name" name="firstname" autocomplete="off"><br>
 			 <p class="label">Last Name</p>
-			 <input type="text" placeholder="Enter Last Name" name="lastname"><br>
+			 <input type="text" placeholder="Enter Last Name" name="lastname" autocomplete="off"><br>
 			 <p class="label">email</p>
-			 <input type="email" placeholder="Enter your Email" name="email"><br>
+			 <input type="email" placeholder="Enter your Email" name="email" autocomplete="off"><br>
 			 <p class="label">Password</p>
 			 <input type="password" placeholder="Enter a good password" name="password"><br>
 			 <p class="label">Birthday</p>
-			 <input type="text" placeholder="DD-MM-YYYY" name="Birth"><br>
+			 <input type="date" name="Birth"><br>
 			 <p class="label">sexe</p>
-			<input type="radio" name="sexe" value="male"> <span class="label">Male</span>
-  			<input type="radio" name="sexe" value="female"><span class="label">Female</span><br>
+			<input type="radio" name="sexe" value="Male"> <span class="label">Male</span>
+  			<input type="radio" name="sexe" value="Female"><span class="label">Female</span><br>
   			<input type="submit" name="signUp" value="Sign Up"> 
 		</form>
 		<?php if(isset($_POST['signUp'])) {echo "<p id=\"error\">".$error."</p>";}?>
