@@ -5,7 +5,8 @@ CREATE TABLE "user" (
     mail     VARCHAR NOT NULL,
     passwd   VARCHAR NOT NULL,
     birthday date,
-    sexe Varchar NOT NULL,
+    sexe Varchar,
+    confirm INTEGER,
     city Varchar,
     description Varchar,
     avatar Varchar,
@@ -13,8 +14,9 @@ CREATE TABLE "user" (
 
 );
 
-INSERT INTO "user"(firstname, lastname,mail,passwd, birthday,sexe) VALUES ('Imane', 'Elmoul','imane.elmoul@gmail.com','567','1997-04-24','Female');
-
+INSERT INTO "user"(firstname, lastname,mail,passwd,confirm) VALUES ('admin','admin','artiste.admin@gmail.com','admin',2);
+INSERT INTO "user"(firstname, lastname,mail,passwd, birthday,sexe,confirm) VALUES ('Imane', 'Elmoul','imane.elmoul@gmail.com','567','1997-04-24','Female',1);
+INSERT INTO "user"(firstname, lastname,mail,passwd, birthday,sexe,confirm) VALUES ('Lucas', 'Herfort','lucas.herfort@gmail.com','123','1997-08-22','Male',1);
 
 
 

@@ -17,10 +17,28 @@ if(isset($_POST['signIn'])){
 		
         if($userexist == 1)
         {
-            $userinfo = $requser->fetch();
-            $_SESSION['id'] = $userinfo['id'];
-            $_SESSION['mail'] = $userinfo['mail'];
-            header("Location: profil.php?id=".$_SESSION['id']);
+			$userinfo = $requser->fetch();
+			if($userinfo['confirm'] == 1)
+			{
+				$_SESSION['id'] = $userinfo['id'];
+				$_SESSION['mail'] = $userinfo['mail'];
+				header("Location: profil.php?id=".$_SESSION['id']);
+			}
+			else if($userinfo['confirm'] == 2)
+			{
+				$_SESSION['id'] = $userinfo['id'];
+				$_SESSION['mail'] = $userinfo['mail'];
+				header("Location: admin.php?id=".$_SESSION['id']);
+			}
+
+			else if($userinfo['confirm'] == 3)
+			{
+				$msgWarning="Votre compte a été bloqué par l'administrateur !";
+			}
+			else
+			{
+				$msgWarning="Votre compte n'a pas encore été validé par l'administrateur !";
+			}
 		}
 		
 		else $msgWarning="Veuillez vérifier votre login ou password !";
@@ -51,8 +69,8 @@ if(isset($_POST['signUp'])){
 				
                 if($exist == 0)
                 {
-                    $insertmbr = $connection->prepare('INSERT INTO "user" (firstname, lastname, mail,passwd, birthday, sexe) VALUES (?,?,?,?,?,?)');
-                    $insertmbr->execute(array($firstName,$lastName,$mail,$passwd,$Birth,$sexe));
+                    $insertmbr = $connection->prepare('INSERT INTO "user" (firstname, lastname, mail,passwd, birthday, sexe, confirm) VALUES (?,?,?,?,?,?,?)');
+                    $insertmbr->execute(array($firstName,$lastName,$mail,$passwd,$Birth,$sexe,0));
                     $error= "Votre compte a bien été créé !";
                     
 				}
@@ -229,3 +247,5 @@ if(isset($_POST['logOut'])){
     header("Location: index.php");
 
 }
+
+

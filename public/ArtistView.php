@@ -10,7 +10,7 @@
 	<div id="logo"> ArtIIstE  <span> Share your colors...</span></div>
 
 	<div id="signInbox">
-		<form name="signIn" method="POST" id="signInform" ">
+		<form name="signIn" method="POST" id="signInform">
 			<input type="email" placeholder="Email" name="logEmail" autocomplete="off">
 			<input type="password" placeholder="Password" name="logPassw">
 			<input type="submit" name="signIn" value="Sign In">
@@ -40,6 +40,8 @@
 		<?php if(isset($_POST['signUp'])) {echo "<p id=\"error\">".$error."</p>";}?>
 
 </div>
-
+<footer>
+	<a href="mailto:artiste.admin@gmail.com">Contactez l'administrateur</a>
+</footer>
 </body>
 </html>
