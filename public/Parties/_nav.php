@@ -5,8 +5,8 @@
             <img src="images/logo_a.png"  width="40" height="40">
             <span class="h4 d-inline align-middle mx-2" id="logo_artiste"><strong>ArtIIstE</strong></span>
         </a>
-        <form class="form-inline" action="" method="">
-            <input class="form-control mr-sm-2" type="text" placeholder="Search">
+        <form class="form-inline" action="../Recherche.php" method="POST">
+            <input class="form-control mr-sm-2" type="text" placeholder="Prénom ou Nom..." name="userRecherche">
             <button id="btn_search" class="btn" type="submit">Search</button>
         </form>
         <li class="nav-item ml-auto dropdown active">
