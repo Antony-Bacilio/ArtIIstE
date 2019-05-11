@@ -1,20 +1,26 @@
 <?php 
+
 include("ArtistModel.php");
 require 'config.php';
+include('Filters/auth_filter.php');
+
 	$id = intval($_SESSION['id']);
 	$requser = $connection->prepare('SELECT * FROM "user" WHERE id = ? ');
     $requser->execute(array($id));
     $userinfo = $requser->fetch();
 ?>
 
+
 <!DOCTYPE html>
 <html>
-<head>
-    <title>ArtIIstE</title>
-    <link rel="stylesheet" href="css/styleprofil.css">
-</head>
+	
+<?php include("Parties/_head.php"); ?>
 
 <body>
+
+	<?php include("Parties/_nav.php"); ?>
+
+	<!-- Background image (Header)-->
 	<?php 
 	if(empty($userinfo['cover']))
 	{?>
@@ -85,6 +91,8 @@ require 'config.php';
 			<input type="submit" name="save" value="Enregistrer" onClick="alert('êtes-vous sûr ?')">																 
 		</form>
 	</div>
+
+	<?php include("Parties/_footer.php");?>
 </body>
 
 </html>

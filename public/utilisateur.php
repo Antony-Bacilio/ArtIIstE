@@ -1,6 +1,10 @@
 <?php 
-include("ArtistModel.php");
+
 require 'config.php';
+include("ArtistModel.php");
+include('Filters/auth_filter.php');
+
+
 	$id = intval($_SESSION['id']);
 	$requser = $connection->prepare('SELECT * FROM "user" WHERE id = ? ');
     $requser->execute(array($id));
@@ -34,12 +38,12 @@ require 'config.php';
 
 <!DOCTYPE html>
 <html>
-<head>
-    <title>ArtIIstE</title>
-    <link rel="stylesheet" href="css/styleprofil.css">
-</head>
+
+<?php include("Parties/_head.php"); ?>
 
 <body>
+
+    <!-- Background image (Header)-->
 	<?php 
 	if(empty($userinfo['cover']))
 	{?>
@@ -58,7 +62,7 @@ require 'config.php';
 				<img src="images/logout.png" id="logOut">
 			</button> 
 		</form>
-
+        <!-- Profil image -->
 		<?php 
 		if(!empty($userinfo['avatar'])){
 			?>
@@ -112,7 +116,7 @@ require 'config.php';
                 <td><?php if($user['confirm'] == 0 || $user['confirm'] == 1 || $user['confirm'] == 3) { ?><a href="utilisateur.php?supprime=<?= $user['id'] ?>">Supprimer</a><? } ?></td>
             </tr>
         <?php endforeach; ?>
-</table>
+    </table>
 
 </body>
 

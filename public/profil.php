@@ -1,6 +1,8 @@
-<?php 
+<?php
+
 require 'config.php';
 include("ArtistModel.php");
+include('Filters/auth_filter.php');
 
 if (isset($_GET['id']) && $_GET['id'] >0){
 
@@ -13,14 +15,15 @@ if (isset($_GET['id']) && $_GET['id'] >0){
 
 ?>
 <!DOCTYPE html>
-<html>
-<head>
-    <title>ArtIIstE</title>
-    <link rel="stylesheet" href="css/styleprofil.css">
-</head>
+<html lang="fr">
+
+<?php include("Parties/_head.php"); ?>
 
 <body>
 
+	<?php include("Parties/_nav.php"); ?>
+
+	<!-- Background image (Header)-->
 	<?php 
 	if(empty($userinfo['cover']))
 	{?>
@@ -31,13 +34,13 @@ if (isset($_GET['id']) && $_GET['id'] >0){
 	<?php
 	}
 	?>
-		<div id="user-informations">
-	<form method="POST">
-
+	<div id="user-informations">
+		<form method="POST">
 			<button type="submit" name="logOut">
 				<img src="images/logout.png" id="logOut">
 			</button> 
-	</form>
+		</form>
+		<!-- Profil image -->
 		<?php 
 		if(!empty($userinfo['avatar']))
 		{?>
@@ -50,7 +53,7 @@ if (isset($_GET['id']) && $_GET['id'] >0){
 		}
 		?>
 		<p id="name"><?php echo $userinfo['firstname']." ". $userinfo['lastname'];?></p>
-		</div>
+	</div>
 	</header>
 	<div id="informations">
 		<nav>
@@ -61,6 +64,8 @@ if (isset($_GET['id']) && $_GET['id'] >0){
 			</ul>
 		</nav>
 	</div>
+
+	<?php include("Parties/_footer.php");?>
 </body>
 </html>
 

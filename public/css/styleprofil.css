@@ -18,6 +18,38 @@ header{
 	background-image:url("../images/cover.jpg");
 
 }
+
+/* Barre de Navigation */
+
+#avatar_nav{
+
+	width:40px;
+	height:40px;
+	display:block;
+	margin:5% auto auto;
+	border-radius:50%;
+
+}
+
+#btn_search {
+
+	background-color: #3f013f;
+	color: antiquewhite;
+}
+
+/* Liste d'Amis */
+
+#avatar_user{
+
+	width:60px;
+	height:60px;
+	/*display:block;*/
+	margin:5% auto auto;
+	border-radius:50%;
+
+}
+
+
 /*PAGE DE PROFIL*/
 #user-informations{
 
@@ -36,6 +68,8 @@ header{
 	border-radius:50%;
 
 }
+
+
 #name {
 
 	text-align: center;
@@ -44,12 +78,14 @@ header{
 	font-size: 14pt;
 
 }
+
 nav{
 	
     padding:5px;
     
 
 }
+
 nav li{
 
    list-style-type:none;

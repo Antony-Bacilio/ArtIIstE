@@ -22,17 +22,17 @@
 <div class="logbox">
 	<p>Join Us</p>
 		<form name="signIn" method="POST" id="logform"">
-			 <p class="label">First Name</p>
-			 <input type="text" placeholder="Enter First name" name="firstname" autocomplete="off"><br>
-			 <p class="label">Last Name</p>
-			 <input type="text" placeholder="Enter Last Name" name="lastname" autocomplete="off"><br>
-			 <p class="label">email</p>
-			 <input type="email" placeholder="Enter your Email" name="email" autocomplete="off"><br>
-			 <p class="label">Password</p>
-			 <input type="password" placeholder="Enter a good password" name="password"><br>
-			 <p class="label">Birthday</p>
-			 <input type="date" name="Birth"><br>
-			 <p class="label">sexe</p>
+			<p class="label">First Name</p>
+			<input type="text" placeholder="Enter First name" name="firstname" autocomplete="off"><br>
+			<p class="label">Last Name</p>
+			<input type="text" placeholder="Enter Last Name" name="lastname" autocomplete="off"><br>
+			<p class="label">email</p>
+			<input type="email" placeholder="Enter your Email" name="email" autocomplete="off"><br>
+			<p class="label">Password</p>
+			<input type="password" placeholder="Enter a good password" name="password"><br>
+			<p class="label">Birthday</p>
+			<input type="date" name="Birth"><br>
+			<p class="label">sexe</p>
 			<input type="radio" name="sexe" value="Male"> <span class="label">Male</span>
   			<input type="radio" name="sexe" value="Female"><span class="label">Female</span><br>
   			<input type="submit" name="signUp" value="Sign Up"> 
@@ -44,4 +44,5 @@
 	<a href="mailto:artiste.admin@gmail.com">Contactez l'administrateur</a>
 </footer>
 </body>
+
 </html>

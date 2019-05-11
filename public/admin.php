@@ -1,6 +1,7 @@
 <?php 
 require 'config.php';
 include("ArtistModel.php");
+include('Filters/auth_filter.php');
 
 if (isset($_GET['id']) && $_GET['id'] > 0){
 
