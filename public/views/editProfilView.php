@@ -7,20 +7,25 @@ $id = intval($_SESSION['id']);
 
 <!DOCTYPE html>
 <html>
-<head>
+<!--<head>
     <title>ArtIIstE</title>
     <link rel="stylesheet" href="css/styleprofil.css">
-</head>
+</head>-->
+<?php include("Parties/_head.php"); ?>
 
 <body>
+
+	<?php include("Parties/_nav.php"); ?>
+
+	<!-- Background image (Header)-->
 	<?php 
 	if(empty($userinfo['cover']))
 	{?>
-	<header style="background-image:url('../images/cover.jpg');">
+	<header style="background-image:url('images/cover.jpg');">
 	<?php 
 	}
 	else{?>
-	<header style="background-image:url('<?php echo '../users/cover/'.$userinfo['cover'] ; ?>');">
+	<header style="background-image:url('<?php echo 'users/cover/'.$userinfo['cover'] ; ?>');">
 	<?php
 	}
 	?>
@@ -31,7 +36,7 @@ $id = intval($_SESSION['id']);
 				<img src="images/logout.png" id="logOut">
 			</button> 
 		</form>
-
+		<!-- Profil image -->
 		<?php 
 		if(!empty($userinfo['avatar'])){
 			?>

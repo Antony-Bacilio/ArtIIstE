@@ -1,0 +1,23 @@
+
+  .navbar {
+    border-bottom: #330033 2px solid; 
+  }
+
+  #logo_artiste{
+    color: #330033;
+  }
+
+  #main_nav{
+    background-color: rgba(210, 201, 219, 0.979);
+  }
+
+
+  hr {
+    width: 25%;
+    background-color: #ccc; 
+  }
+  
+  #head-users{
+    background-color: rgb(40, 3, 65);
+    color: azure; 
+  }

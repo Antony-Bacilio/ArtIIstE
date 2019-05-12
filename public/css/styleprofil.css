@@ -9,6 +9,7 @@ padding:0px;
 margin:0px;
 
 }
+
 header{
 
 	height:377px;
@@ -18,7 +19,39 @@ header{
 	background-image:url("../images/cover.jpg");
 	margin-top:7px;
 }
-/*PAGE DE PROFIL*/
+
+
+/* Barre de Navigation */
+#avatar_nav{
+
+	width:40px;
+	height:40px;
+	display:block;
+	margin:5% auto auto;
+	border-radius:50%;
+
+}
+
+#btn_search {
+
+	background-color: #3f013f;
+	color: antiquewhite;
+}
+
+
+/*********************** LISTE D'AMIS **************************************/
+#avatar_user{
+
+	width:60px;
+	height:60px;
+	/*display:block;*/
+	margin:5% auto auto;
+	border-radius:50%;
+
+}
+
+
+/*********************** PAGE DE PROFIL **************************************/
 #user-informations{
 
 	position:absolute;
@@ -105,8 +138,10 @@ text-align: center;
 font-size:12pt;
 color:#330033;
 }
-/*EDIT PROFIL*/
 
+
+
+/*********************** EDIT PROFIL **************************************/
 .label{
 
 font-size: 12pt;
@@ -232,10 +267,10 @@ align-items: center;
 	color:#C8C6C7;
 	text-decoration:none;
 }
-#gallery{
+/*#gallery{
 
 
-}
+}*/
 #gallery_photo{
 
 	width:100%;
@@ -250,7 +285,7 @@ align-items: center;
 
 
 }
-#Search {
+/*#Search {
 	float:none;
 }
 #Search img {
@@ -259,5 +294,5 @@ align-items: center;
 	position: absolute;
 	top: 0;
 
-}
+}*/
 

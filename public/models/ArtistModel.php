@@ -3,6 +3,7 @@ session_start();
 require '../vendor/autoload.php';
 require 'config.php';
 
+
 /*********************************************  C O N N E X I O N  *****************************************************/
 if(isset($_POST['signIn'])){
 
@@ -28,7 +29,7 @@ if(isset($_POST['signIn'])){
 			{
 				$_SESSION['id'] = $userinfo['id'];
 				$_SESSION['mail'] = $userinfo['mail'];
-				header("Location: admin.php?id=".$_SESSION['id']);
+				header("Location: ProfilAdmin.php?id=".$_SESSION['id']);
 			}
 
 			else if($userinfo['confirm'] == 3)

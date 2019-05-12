@@ -1,38 +1,48 @@
 <?php
 if (isset($_GET['id']) && $_GET['id'] >0){
 
+	/* Ajout */
+	$_SESSION['id'] = $_GET['id'];
+
     $id = $_GET['id'];
     $requser = $connection->prepare('SELECT * FROM "user" WHERE id = ? ');
     $requser->execute(array($id));
     $userinfo = $requser->fetch();
     $reqpub = $connection->prepare('SELECT * FROM "Publication" WHERE user_id = ? ORDER BY id DESC');
-    $reqpub->execute(array($id));
+	$reqpub->execute(array($id));
 
 }
 
 ?>
+
 <!DOCTYPE html>
 <html>
-<head>
+<!--<head>
     <title>ArtIIstE</title>
     <link rel="stylesheet" href="css/styleprofil.css">
-</head>
-
+</head>-->
+<?php include("Parties/_head.php"); ?>
 <body>
 	<?php include("Parties/_nav.php");?>
 
+	<!-- Background image (Header)-->
 	<?php 
 	if(empty($userinfo['cover']))
 	{?>
-	<header style="background-image:url('../images/cover.jpg');">
+	<header style="background-image:url('images/cover.jpg');">
 	<?php 
 	}else{?>
-	<header style="background-image:url('<?php echo '../users/cover/'.$userinfo['cover'] ; ?>');">
+	<header style="background-image:url('<?php echo 'users/cover/'.$userinfo['cover'] ; ?>');">
 	<?php
 	}
 	?>
-		<div id="user-informations">
-	
+	<div id="user-informations">
+		<form method="POST">
+			<button type="submit" name="logOut">
+				<img src="images/logout.png" id="logOut">
+			</button> 
+		</form>
+		<!-- Profil image -->
 		<?php 
 		if(!empty($userinfo['avatar']))
 		{?>
@@ -45,8 +55,9 @@ if (isset($_GET['id']) && $_GET['id'] >0){
 		}
 		?>
 		<p id="name"><?php echo $userinfo['firstname']." ". $userinfo['lastname'];?></p>
+	</div>
+    </header>
 
-      </header>
 	<div id="informations">
 		<nav>
 			<ul>
@@ -63,9 +74,7 @@ if (isset($_GET['id']) && $_GET['id'] >0){
 		<h5 id="about-title">A propos de moi</h5>
 		<p><?php echo $userinfo['description'];?>
 		<?php }?>
-
-
-			
+	
 	</div>
 
 
@@ -87,40 +96,41 @@ if (isset($_GET['id']) && $_GET['id'] >0){
 				{?>
 					<img id="avatar" src="users/avatar/<?php echo$userinfo['avatar']?>">
 					<p id="name"><a href="profil.php?id=<?php echo $_GET['id'] ?>">
-					<?php echo $userinfo['firstname']." ". $userinfo['lastname'];?></a></p></div>
+					<?php echo $userinfo['firstname']." ". $userinfo['lastname'];?></a></p>
+				</div>
 					<?php 
 				} else {
 					?>
 					<img id="avatar" src="images/avatar.png">
 					<p id="name"><a href="profil.php?id=<?php echo $_GET['id'] ?>">
-					<?php echo $userinfo['firstname']." ". $userinfo['lastname'];?></a></p></div>
+					<?php echo $userinfo['firstname']." ". $userinfo['lastname'];?></a></p>
+			</div>
 				<?php
 				}?>
 			
 		
 		
 		<div id="contenue">
-		<?php
-		if(!empty($p['description'])){		
-		?>
-		<p id="pub_description"><?php echo $p['description'];?></p>
-		<p id="pub_date"><?php echo "posté le ".$p['date_pub'];?></p>
-		<?php 
-		}
-		?>
-		<?php
-		if(!empty($p['photo']))
-		{?>
-			<img id="pub_photo" src="users/publication/<?php echo $p['photo'];?>">
-			</div>
+			<?php
+			if(!empty($p['description'])){		
+			?>
+			<p id="pub_description"><?php echo $p['description'];?></p>
+			<p id="pub_date"><?php echo "posté le ".$p['date_pub'];?></p>
+			<?php 
+			}
+			?>
+			<?php
+			if(!empty($p['photo']))
+			{?>
+				<img id="pub_photo" src="users/publication/<?php echo $p['photo'];?>">
 		</div>
+	</div>
 		<?php 
 		}}
 		?>
-		
-			
-	</div>
+
 <?php include("Parties/_footer.php");?>
+
 </body>
 </html>
 

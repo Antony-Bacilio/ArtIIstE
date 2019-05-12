@@ -1,6 +1,8 @@
 <?php
 require '../vendor/autoload.php';
 require 'config.php';
+
+
 /********************************AJOUT DES PUBLICATIONS*****************************************************/
 if(isset($_POST['partager'])){
 
@@ -47,6 +49,8 @@ if(isset ($_FILES['photo']) AND !empty($_FILES['photo']['name'])){
 
 	}
 }
+
+
 /**********************************************LES LIKES*********************************************************/
 
 if(isset($_POST['like'])){
@@ -54,47 +58,5 @@ if(isset($_POST['like'])){
 	$aimer=$connection->prepare('Update "Publication" Set aime=aime+1');	
 	$aimer->execute();
 
-
-
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
