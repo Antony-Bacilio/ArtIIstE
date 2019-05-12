@@ -2,7 +2,7 @@
 
 include("ArtistModel.php");
 
-include("Vues/ArtistView.php");
+include("ArtistView.php");
 
 
 

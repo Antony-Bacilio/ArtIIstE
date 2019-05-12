@@ -22,8 +22,6 @@ if(isset($_POST['signIn'])){
 			{
 				$_SESSION['id'] = $userinfo['id'];
 				$_SESSION['mail'] = $userinfo['mail'];
-				$_SESSION['avatar'] = $userinfo['avatar'];
-				$_SESSION['firstname'] = $userinfo['firstname'];
 				header("Location: profil.php?id=".$_SESSION['id']);
 			}
 			else if($userinfo['confirm'] == 2)
@@ -193,7 +191,12 @@ if(isset($_POST['save'])){
 			$insertmbr = $connection->prepare('UPDATE "user" SET firstname = ? WHERE id = ?');
 		    $error=$insertmbr->execute(array($newFirstName,$_SESSION['id']));
 		}
-	}
+   }
+   else {
+       $insertmbr = $connection->prepare('UPDATE "user" SET firstname = ? WHERE id = ?');
+       $error=$insertmbr->execute(array(NULL,$_SESSION['id']));
+
+   }
 
 	if(!empty($newLastName) ){
 
@@ -202,12 +205,21 @@ if(isset($_POST['save'])){
 		    $error=$insertmbr->execute(array($newLastName,$_SESSION['id']));
 		}
 	}
+   else {
+       $insertmbr = $connection->prepare('UPDATE "user" SET city = ? WHERE id = ?');
+       $error=$insertmbr->execute(array(NULL,$_SESSION['id']));
 
+   }
     if(!empty($newMail) ){
 		$insertmbr = $connection->prepare('UPDATE "user" SET mail = ? WHERE id = ?');
 		$error=$insertmbr->execute(array($newMail,$_SESSION['id']));
 			
 	}
+   else {
+       $insertmbr = $connection->prepare('UPDATE "user" SET city = ? WHERE id = ?');
+       $error=$insertmbr->execute(array(NULL,$_SESSION['id']));
+
+   }
 
     if(!empty($sexe) ){
 		$insertmbr = $connection->prepare('UPDATE "user" SET sexe = ? WHERE id = ?');
@@ -226,18 +238,33 @@ if(isset($_POST['save'])){
 		$error=$insertmbr->execute(array($city,$_SESSION['id']));
 			
 	}
+   else {
+       $insertmbr = $connection->prepare('UPDATE "user" SET city = ? WHERE id = ?');
+       $error=$insertmbr->execute(array(NULL,$_SESSION['id']));
+
+   }
 
     if(!empty($description) ){
 		$insertmbr = $connection->prepare('UPDATE "user" SET description = ? WHERE id = ?');
 		$error=$insertmbr->execute(array($description,$_SESSION['id']));
 			
-	}        
+	} 
+   else {
+       $insertmbr = $connection->prepare('UPDATE "user" SET city = ? WHERE id = ?');
+       $error=$insertmbr->execute(array(NULL,$_SESSION['id']));
+
+   }       
 
 	if(!empty($newpasswd)){
 		$insertmbr = $connection->prepare('UPDATE "user" SET passwd = ? WHERE id = ?');
 		$insertmbr->execute(array($newpasswd,$_SESSION['id']));
 
 	}
+   else {
+       $insertmbr = $connection->prepare('UPDATE "user" SET city = ? WHERE id = ?');
+       $error=$insertmbr->execute(array(NULL,$_SESSION['id']));
+
+   }
 
 }
 
