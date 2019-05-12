@@ -1,8 +1,8 @@
 <?php
 
-include("ArtistModel.php");
+include("models/ArtistModel.php");
 
-include("ArtistView.php");
+include("views/ArtistView.php");
 
 
 

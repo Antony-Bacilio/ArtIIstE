@@ -16,7 +16,7 @@ header{
 	position:relative;
 	display:block;
 	background-image:url("../images/cover.jpg");
-
+	margin-top:7px;
 }
 /*PAGE DE PROFIL*/
 #user-informations{
@@ -157,7 +157,7 @@ color:#C8C6C7;
 	margin: 15px;
 	position: absolute;
 	right: 164px;
-	top: 45%;
+	top: 50%;
 	background-color: rgba(255,255,255,0.9);
 }
 .publications textarea{
@@ -248,6 +248,16 @@ align-items: center;
 	margin:10px;
 	padding:10px;
 
+
+}
+#Search {
+	float:none;
+}
+#Search img {
+
+	width: 26px;
+	position: absolute;
+	top: 0;
 
 }
 
