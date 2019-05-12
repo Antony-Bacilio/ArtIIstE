@@ -22,6 +22,8 @@ if(isset($_POST['signIn'])){
 			{
 				$_SESSION['id'] = $userinfo['id'];
 				$_SESSION['mail'] = $userinfo['mail'];
+				$_SESSION['avatar'] = $userinfo['avatar'];
+				$_SESSION['firstname'] = $userinfo['firstname'];
 				header("Location: profil.php?id=".$_SESSION['id']);
 			}
 			else if($userinfo['confirm'] == 2)

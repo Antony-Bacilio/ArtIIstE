@@ -11,26 +11,13 @@
     background-color: rgba(210, 201, 219, 0.979);
   }
 
-  
+
   hr {
     width: 25%;
     background-color: #ccc; 
   }
   
-  .breadcrumb {
-    background-color: #ffffff; 
-  }
-  
-  .card {
-    position: relative;
-    z-index: 1;
-    overflow: hidden;
-    box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.16), 0 2px 10px 0 rgba(0, 0, 0, 0.12);
-    -webkit-transition: .25s box-shadow;
-    transition: .25s box-shadow; 
-  }
-  
-  
-  .mobile{
-    background: #42C779;
-  }
+#head-users{
+  background-color: rgb(40, 3, 65);
+  color: azure; 
+}

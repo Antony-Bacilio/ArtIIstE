@@ -7,7 +7,7 @@
 
 <body>
 <header>
-	<div id="logo"> ArtIIstE  <span> Share your colors...</span></div>
+	<div id="logo"> <img src="images/logo_a.png"  width="60" height="60">ArtIIstE  <span> Share your colors...</span></div>
 
 	<div id="signInbox">
 		<form name="signIn" method="POST" id="signInform">

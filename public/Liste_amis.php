@@ -14,8 +14,8 @@ $req = $connection->prepare('SELECT * FROM "user" WHERE id > 1 ORDER BY "firstna
 $req->execute();
 $usersinfo = $req->fetchAll();
 
-
-include('Vues/Liste_users_vue.php');
+/* Partie Vue */
+include('Vues/Liste_amis_vue.php');
 
 ?>	
 
