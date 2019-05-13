@@ -1,8 +1,6 @@
 <?php
 require '../vendor/autoload.php';
 require 'config.php';
-
-
 /********************************AJOUT DES PUBLICATIONS*****************************************************/
 if(isset($_POST['partager'])){
 

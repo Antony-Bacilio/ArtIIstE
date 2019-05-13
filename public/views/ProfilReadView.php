@@ -1,21 +1,7 @@
-<!DOCTYPE html>
-<html>
-<?php include("Parties/_head.php"); ?>
-<body>
 <?php
-    $id=$_SESSION['id'];
-    $requser = $connection->prepare('SELECT * FROM "user" WHERE id = ? ');
-    $requser->execute(array($id));
-    $userinfo = $requser->fetch();
-    $reqpub = $connection->prepare('SELECT * FROM "Publication" WHERE user_id = ? ORDER BY id DESC');
-    $reqpub->execute(array($id));
-
-?>
-	<?php include("Parties/_nav.php");?>
-
-
-<?php
+include('models/ArtistModel.php');
 if (isset($_GET['id']) && $_GET['id'] >0){
+
     $id = $_GET['id'];
     $requser = $connection->prepare('SELECT * FROM "user" WHERE id = ? ');
     $requser->execute(array($id));
@@ -26,6 +12,12 @@ if (isset($_GET['id']) && $_GET['id'] >0){
 }
 
 ?>
+
+<!DOCTYPE html>
+<html>
+<?php include("Parties/_head.php"); ?>
+<body>
+	<?php include("Parties/_nav.php");?>
 
 	<!-- Background image (Header)-->
 	<?php 
@@ -64,9 +56,6 @@ if (isset($_GET['id']) && $_GET['id'] >0){
 		<nav>
 			<ul>
 			<li><a href="profil.php?id=<?php echo $_GET['id'] ?>" role="button" class="btn">profil</a></li>
-			<?php if($_SESSION['id']==$id) {?>
-			<li><a href="editProfil.php?id=<?php echo $_GET['id'] ?>" id="editProfil">Modifier votre profile</a></li>
-			<?php }?>
 			<li><a href ="" id="followers">Abonnées</a></li>
 			<li><a href="" id="following">Abonnements</a></li>
 			</ul>
@@ -84,14 +73,12 @@ if (isset($_GET['id']) && $_GET['id'] >0){
 
 
 	<div class="publications">
-<?php if($_SESSION['id']==$id) {?>
 	       	<form method="POST" enctype="multipart/form-data">
 			<textarea type=text name="topic_description" placeholder="écrire quelque chose..."></textarea>
 			<input type="file" name="photo"  >
 			<input type="submit" name="partager" value="Partager" >
 			
 		</form>
-<?php } ?>
 
 		<?php 
 		while ($p = $reqpub->fetch()){?>

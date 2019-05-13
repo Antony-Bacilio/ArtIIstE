@@ -2,8 +2,6 @@
 session_start(); 
 require '../vendor/autoload.php';
 require 'config.php';
-
-
 /*********************************************  C O N N E X I O N  *****************************************************/
 if(isset($_POST['signIn'])){
 
@@ -269,13 +267,5 @@ if(isset($_POST['save'])){
 
 }
 
-/********************************************  D E C O N N E X I O N  **************************************************/
-if(isset($_POST['logOut'])){
-
-	$_SESSION = array();
-	session_destroy();
-    header("Location: index.php");
-
-}
 
 

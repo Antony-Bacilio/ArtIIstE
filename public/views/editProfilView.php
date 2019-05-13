@@ -89,6 +89,7 @@ $id = intval($_SESSION['id']);
 			<input type="submit" name="save" value="Enregistrer" onClick="alert('êtes-vous sûr ?')">																 
 		</form>
 	</div>
+<?php include("Parties/_footer.php");?>
 </body>
 
 </html>
