@@ -1,31 +1,36 @@
 <!DOCTYPE html>
 <html>
-<?php include("Parties/_head.php"); ?>
-<body>
-<?php
-    $id=$_SESSION['id'];
-    $requser = $connection->prepare('SELECT * FROM "user" WHERE id = ? ');
-    $requser->execute(array($id));
-    $userinfo = $requser->fetch();
-    $reqpub = $connection->prepare('SELECT * FROM "Publication" WHERE user_id = ? ORDER BY id DESC');
-    $reqpub->execute(array($id));
 
-?>
+<?php include("Parties/_head.php"); ?>
+
+<body>
+
+	<?php
+		$id=$_SESSION['id'];
+		$requser = $connection->prepare('SELECT * FROM "user" WHERE id = ? ');
+		$requser->execute(array($id));
+		$userinfo = $requser->fetch();
+
+		$reqpub = $connection->prepare('SELECT * FROM "Publication" WHERE user_id = ? ORDER BY id DESC');
+		$reqpub->execute(array($id));
+	?>
+
 	<?php include("Parties/_nav.php");?>
 
 
-<?php
-if (isset($_GET['id']) && $_GET['id'] >0){
-    $id = $_GET['id'];
-    $requser = $connection->prepare('SELECT * FROM "user" WHERE id = ? ');
-    $requser->execute(array($id));
-    $userinfo = $requser->fetch();
-    $reqpub = $connection->prepare('SELECT * FROM "Publication" WHERE user_id = ? ORDER BY id DESC');
-    $reqpub->execute(array($id));
+	<?php
 
-}
+		if (isset($_GET['id']) && $_GET['id'] >0){
+			$id = $_GET['id'];
+			$requser = $connection->prepare('SELECT * FROM "user" WHERE id = ? ');
+			$requser->execute(array($id));
+			$userinfo = $requser->fetch();
 
-?>
+			$reqpub = $connection->prepare('SELECT * FROM "Publication" WHERE user_id = ? ORDER BY id DESC');
+			$reqpub->execute(array($id));
+
+		}
+	?>
 
 	<!-- Background image (Header)-->
 	<?php 
@@ -38,26 +43,26 @@ if (isset($_GET['id']) && $_GET['id'] >0){
 	<?php
 	}
 	?>
-	<div id="user-informations">
-		<form method="POST">
-			<button type="submit" name="logOut">
-				<img src="images/logout.png" id="logOut">
-			</button> 
-		</form>
-		<!-- Profil image -->
-		<?php 
-		if(!empty($userinfo['avatar']))
-		{?>
-		<img id="avatar" src="users/avatar/<?php echo$userinfo['avatar']?>">
-		<?php 
-		} else {
-		?>	
-		<img id="avatar" src="images/avatar.png">
-		<?php
-		}
-		?>
-		<p id="name"><?php echo $userinfo['firstname']." ". $userinfo['lastname'];?></p>
-	</div>
+		<div id="user-informations">
+			<form method="POST">
+				<button type="submit" name="logOut">
+					<img src="images/logout.png" id="logOut">
+				</button> 
+			</form>
+			<!-- Profil image -->
+			<?php 
+			if(!empty($userinfo['avatar']))
+			{?>
+			<img id="avatar" src="users/avatar/<?php echo$userinfo['avatar']?>">
+			<?php 
+			} else {
+			?>	
+			<img id="avatar" src="images/avatar.png">
+			<?php
+			}
+			?>
+			<p id="name"><?php echo $userinfo['firstname']." ". $userinfo['lastname'];?></p>
+		</div>
     </header>
 
 	<div id="informations">
@@ -78,20 +83,19 @@ if (isset($_GET['id']) && $_GET['id'] >0){
 		<h5 id="about-title">A propos de moi</h5>
 		<p><?php echo $userinfo['description'];?>
 		<?php }?>
-	
 	</div>
 
 
 
 	<div class="publications">
-<?php if($_SESSION['id']==$id) {?>
-	       	<form method="POST" enctype="multipart/form-data">
-			<textarea type=text name="topic_description" placeholder="écrire quelque chose..."></textarea>
-			<input type="file" name="photo"  >
-			<input type="submit" name="partager" value="Partager" >
-			
-		</form>
-<?php } ?>
+		<?php if($_SESSION['id']==$id) {?>
+					<form method="POST" enctype="multipart/form-data">
+					<textarea type=text name="topic_description" placeholder="écrire quelque chose..."></textarea>
+					<input type="file" name="photo"  >
+					<input type="submit" name="partager" value="Partager" >
+					
+				</form>
+		<?php } ?>
 
 		<?php 
 		while ($p = $reqpub->fetch()){?>
@@ -135,7 +139,7 @@ if (isset($_GET['id']) && $_GET['id'] >0){
 		}}
 		?>
 
-<?php include("Parties/_footer.php");?>
+	<?php include("Parties/_footer.php");?>
 
 </body>
 </html>

@@ -19,11 +19,6 @@
 	}
 	?>
 	<div id="user-informations">
-        <!--<form method="POST">
-            <button type="submit" name="logOut">
-                <img src="images/logout.png" id="logOut">
-            </button> 
-        </form>-->
         <!-- Profil image -->
         <?php 
         if(!empty($userinfo['avatar']))

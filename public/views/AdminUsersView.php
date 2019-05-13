@@ -34,7 +34,7 @@
         </thead>
         <?php /** @var \User\User $user */
         foreach ($usersinfo as $user) : ?>
-            <tr>
+            <tr class="">
                 <td><?php echo $user['id'] ?></td>
                 <td><?php echo $user['firstname'] ?></td>
                 <td><?php echo $user['lastname'] ?></td>
