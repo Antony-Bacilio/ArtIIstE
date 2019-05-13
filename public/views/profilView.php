@@ -64,16 +64,25 @@
 			<p id="name"><?php echo $userinfo['firstname']." ". $userinfo['lastname'];?></p>
 		</div>
     </header>
+        <?php if($_SESSION['id']!= $id){ ?>
+	<form method = "POST">
+		<input type="submit" value="s'abonner" name="follow">
+		<input type="submit" value="désabonner" name="unfollow">
+	</form>
+	<?php } ?>
+	<?php if(isset($_POST['follow'])){ echo $error;}
+	        if(isset($_POST['unfollow'])){ echo $error;}
+	 ?>
 
 	<div id="informations">
 		<nav>
 			<ul>
-			<li><a href="profil.php?id=<?php echo $_GET['id'] ?>" role="button" class="btn">profil</a></li>
+			<li><a href="profil.php?id=<?php echo $_GET['id'] ?>" >profil</a></li>
 			<?php if($_SESSION['id']==$id) {?>
 			<li><a href="editProfil.php?id=<?php echo $_GET['id'] ?>" id="editProfil">Modifier votre profile</a></li>
 			<?php }?>
-			<li><a href ="" id="followers">Abonnées</a></li>
-			<li><a href="" id="following">Abonnements</a></li>
+			<li><a href ="FolowersList.php" id="followers">Abonnées</a></li>
+			<li><a href="FolowedList.php" id="following">Abonnements</a></li>
 			</ul>
 		</nav>
 

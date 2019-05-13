@@ -266,6 +266,69 @@ if(isset($_POST['save'])){
    }
 
 }
+/************************ABONNEMENT*******************************************/
+
+if(isset($_POST['follow'])){
+
+	$getid=$_GET['id'];
+	$req = $connection->prepare('SELECT * FROM "Abonnement" WHERE abonne = ? AND abonnement = ?');
+        $req->execute(array($_SESSION['id'],$getid));
+	$exist = $req->rowCount();
+	if($exist ==0){
+
+		$insertmbr = $connection->prepare('INSERT INTO "Abonnement" (abonne, abonnement) VALUES (?,?)');
+                $insertmbr->execute(array($_SESSION['id'],$getid));
+                $error= "Vous êtes bien abonné";
+
+	}
+	else{
+
+		 $error= "Vous êtes déjà abonnée à ce compte";
+	}
+
+
+}
+
+/************************UNFOLLOW*******************************************/
+
+
+if(isset($_POST['unfollow'])){
+
+	$getid=$_GET['id'];
+	$req = $connection->prepare('SELECT * FROM "Abonnement" WHERE abonne = ? AND abonnement = ?');
+        $req->execute(array($_SESSION['id'],$getid));
+	$exist = $req->rowCount();
+	if($exist !=0){
+
+		$insertmbr = $connection->prepare('DELETE FROM "Abonnement" WHERE abonne = ? AND abonnement = ?');
+                $insertmbr->execute(array($_SESSION['id'],$getid));
+                $error= "Vous êtes bien désabonné";
+
+	}
+	else{
+
+		 $error= "Vous n'êtes pas abonnée à ce compte";
+	}
+
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

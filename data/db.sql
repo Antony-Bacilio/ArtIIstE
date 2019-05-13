@@ -24,8 +24,8 @@ CREATE TABLE "Publication" (
 );
 CREATE TABLE "Abonnement" (
     id SERIAL PRIMARY KEY,
-    abonne VARCHAR,
-    abonnement VARCHAR
+    abonne INTEGER,
+    abonnement INTEGER
 );
 
 
