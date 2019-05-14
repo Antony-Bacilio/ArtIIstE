@@ -1,7 +1,7 @@
 <div class="container">
     <nav id="main_nav" class="navbar pl-5 pr-5 navbar-expand-sm navbar-light fixed-top" >
     
-            <a href="index.php" class="navbar-brand">
+            <a href="" class="navbar-brand">
                 <img src="images/logo_a.png"  width="40" height="40">
                 <span class="h4 d-inline align-middle mx-2" id="logo_artiste"><strong>ArtIIstE</strong></span>
             </a>
@@ -30,7 +30,7 @@
 
                 <div class="dropdown-menu bg-light" aria-labelledby="Projet" >
                     <a class="dropdown-item" id="" href="profil.php?id=<?php echo $_SESSION['id'] ?>" ><strong>Mon profil</strong></a>
-                    <a class="dropdown-item" id="" href="../ListeAmis.php" ><strong>Amis</strong></a>
+                    <!--<a class="dropdown-item" id="" href="../ListeAmis.php" ><strong>Amis</strong></a>-->
                     <a class="dropdown-item" id="" href="../logOut.php" ><strong>Déconnexion</strong></a>
                 </div>                                                 
             </li>

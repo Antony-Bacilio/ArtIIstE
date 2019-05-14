@@ -22,11 +22,14 @@ CREATE TABLE "Publication" (
     nb_likes INTEGER DEFAULT 0,
     user_like_id INTEGER
 );
+
+
 CREATE TABLE "Abonnement" (
     id SERIAL PRIMARY KEY,
     abonne INTEGER,
     abonnement INTEGER
 );
+
 
 
 INSERT INTO "user"(firstname, lastname,mail,passwd,confirm) VALUES ('admin','admin','artiste.admin@gmail.com','admin',2);
@@ -46,6 +49,5 @@ INSERT INTO "user"(firstname, lastname, mail, passwd, birthday, sexe,confirm) VA
 INSERT INTO "user"(firstname, lastname, mail, passwd, birthday, sexe,confirm) VALUES ('Jackie', 'Cohen', 'jackie.cohen@gmail.com', '123','1967-01-27','Female',1);
 INSERT INTO "user"(firstname, lastname, mail, passwd, birthday, sexe,confirm) VALUES ('Delores', 'Williamson', 'delores.williamson@gmail.com', '123','1961-07-19','Female',1);
 
-
-
-
+INSERT INTO "user"(firstname, lastname,mail,passwd, birthday,sexe,confirm) VALUES ('Imane', 'Bababa','imane.bababa@gmail.com','123','1997-04-24','Female',1);
+INSERT INTO "user"(firstname, lastname,mail,passwd, birthday,sexe,confirm) VALUES ('Lucas', 'Cococo','lucas.cococo@gmail.com','123','1997-08-22','Male',1);

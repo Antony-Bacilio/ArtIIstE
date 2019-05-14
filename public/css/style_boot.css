@@ -11,6 +11,15 @@
     background-color: rgba(210, 201, 219, 0.979);
   }
 
+  #foot_profil{
+
+    background-color:  rgba(210, 201, 219, 0.979);
+    border-top-style: solid;
+    border-top-width: 2px;
+    border-top-color: #330033;
+    text-align: center;
+    text-decoration-color: #330033;
+  }
 
   hr {
     width: 25%;

@@ -15,6 +15,7 @@ $id = intval($_SESSION['id']);
 
 <body>
 
+	<!-- Barre de Navigation-->
 	<?php include("Parties/_nav.php"); ?>
 
 	<!-- Background image (Header)-->
@@ -56,8 +57,8 @@ $id = intval($_SESSION['id']);
 	<div id="informations">
 		<nav>
 			<ul>
-			<li><a href="profil.php?id=<?php echo $_GET['id'] ?>" role="button" class="btn">Profile</a></li>
-			<li><a href ="editProfil.php"id="editProfil">Modifier</a></li>
+			<li><a href="profil.php?id=<?php echo $_GET['id'] ?>" role="button">Profil</a></li>
+			<!--<li><a href ="editProfil.php"id="editProfil">Modifier</a></li>-->
 			<li><a href ="" id="followers">Abonnées</a></li>
 			<li><a href="" id="following">Abonnements</a></li>
 			</ul>
@@ -89,7 +90,9 @@ $id = intval($_SESSION['id']);
 			<input type="submit" name="save" value="Enregistrer" onClick="alert('êtes-vous sûr ?')">																 
 		</form>
 	</div>
+
 <?php include("Parties/_footer.php");?>
+
 </body>
 
 </html>

@@ -21,7 +21,7 @@ header{
 }
 
 
-/* Barre de Navigation */
+/******************* Barre de Navigation *******************************/
 #avatar_nav{
 
 	width:40px;
@@ -232,6 +232,21 @@ color:#C8C6C7;
 	
 
 }
+
+#btn_parcourir{
+
+	background-color: #574057;
+}
+
+#pub_profil {
+
+	border-color: #100114;
+	border-radius: 5px;
+	border-style: solid;
+	border-width: 1px;
+
+}
+
 #pub{
 	background-color:#330033;
 }
@@ -245,7 +260,8 @@ color:#C8C6C7;
 }
 #pub_photo{
 
-	width:100%;
+	width:50%;
+	/*align-items: center;*/
 
 }
 .publications #avatar{
@@ -259,8 +275,8 @@ color:#C8C6C7;
 #infos-user{
 	height:80px;
 	margin-top:20px;
-display: flex;
-align-items: center;
+	display: flex;
+	align-items: center;
 }
 #infos-user #name a{
 
@@ -285,14 +301,8 @@ align-items: center;
 
 
 }
-/*#Search {
-	float:none;
+
+#foot_profil{
+	background-color: #574057;
 }
-#Search img {
-
-	width: 26px;
-	position: absolute;
-	top: 0;
-
-}*/
 

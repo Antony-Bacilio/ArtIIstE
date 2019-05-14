@@ -51,39 +51,47 @@ if(isset($_GET['btn_search']) AND !empty($_GET['userRecherche'])) {
 
 	<?php include("Parties/_nav.php");?>
 
-	<!-- Background image (Header)-->
-	<?php 
-	if(empty($userinfo['cover']))
-	{?>
-	<header style="background-image:url('images/cover.jpg');">
-	<?php 
-	}else{?>
-	<header style="background-image:url('<?php echo 'users/cover/'.$userinfo['cover'] ; ?>');">
-	<?php
-	}
-	?>
-		<div id="user-informations">
-			<form method="POST">
-				<button type="submit" name="logOut">
-					<img src="images/logout.png" id="logOut">
-				</button> 
-			</form>
-			<!-- Profil image -->
-			<?php 
-			if(!empty($userinfo['avatar']))
-			{?>
-			<img id="avatar" src="users/avatar/<?php echo$userinfo['avatar']?>">
-			<?php 
-			} else {
-			?>	
-			<img id="avatar" src="images/avatar.png">
-			<?php
-			}
-			?>
-			<p id="name"><?php echo $userinfo['firstname']." ". $userinfo['lastname'];?></p>
-		</div>
-  </header>
 
+	<!-- HEADER -->
+
+		<!-- Background image -->
+		<?php 
+		if(empty($userinfo['cover']))
+		{?>
+		<header style="background-image:url('images/cover.jpg');">
+		<?php 
+		}else{?>
+		<header style="background-image:url('<?php echo 'users/cover/'.$userinfo['cover'] ; ?>');">
+		<?php
+		}
+		?>
+		<!-- FIN - Background image -->
+
+			<div id="user-informations">
+
+			<!-- Profil image -->
+				<?php 
+				if(!empty($userinfo['avatar']))
+				{?>
+				<img id="avatar" src="users/avatar/<?php echo $userinfo['avatar']?>">
+				<?php 
+				} else {
+				?>	
+				<img id="avatar" src="images/avatar.png">
+				<?php
+				}
+				?>
+				<!-- FIN - Profil image -->
+
+				<p id="name"><?php echo $userinfo['firstname']." ". $userinfo['lastname'];?></p>
+
+			</div>
+		</header>
+	<!-- FIN - HEADER -->
+
+
+
+	<!-- Liens -->
 	<div id="informations">
 		<nav>
 			<ul>
@@ -96,39 +104,78 @@ if(isset($_GET['btn_search']) AND !empty($_GET['userRecherche'])) {
 			</ul>
 		</nav>
 
-		<?php 
-		if(!empty($userinfo['description']))
-		{?>
-		<h5 id="about-title">A propos de moi</h5>
-		<p><?php echo $userinfo['description'];?>
+		<?php if(!empty($userinfo['description'])){?>
+			<h5 id="about-title">A propos de moi</h5>
+			<p><?php echo $userinfo['description'];?>
 		<?php }?>
 	</div>
+	<!-- FIN - Liens -->
 
-    <div id="userSearch" class="container mt-5">
-			<h3>Artistes trouvés: </h3>
-			<div class="">
-				<?php while($u = $requserR->fetch()) { ?>
-							<a href="profil.php?id=<?php echo $u['id'] ?>">
-								<?php 
-								if(!empty($u['avatar']))
-								{?>
-								<img id="avatar_user" src="users/avatar/<?php echo$u['avatar']?>">
-								<?php 
-								} else {
-								?>	
-								<img id="avatar_user" src="images/avatar.png">
-								<?php
-								}
-								?>
-							</a>
-							<h5>
-								<a href="profil.php?id=<?php echo $u['id'] ?>"><? echo $u['firstname']." " . $u['lastname']; ?>
-							</h5>
-						<?php } ?>
+
+<!-- Contenu Profil -->
+<div class="container-fluid p-4 ">
+		<div class="row content">
+
+			<!-- Colonne Autres -->
+			<div class="col-sm-3 sidenav ">
+				<br>
+				<h4>Derniers Artistes Inscrits</h4>
+
+				
+				<div class="input-group">
+					
+				</div>
 			</div>
-    </div>
+			<!-- FIN - Colonne Autres -->
+
+
+			<!-- Colonne publications -->
+			<div class="col-sm-9">
+				<div class="">
+
+					<div class="container-fluid">
+
+						<div id="userSearch" class="container mt-5">
+							<h3>Artistes trouvés: </h3>
+							<div class="">
+								<?php while($u = $requserR->fetch()) { ?>
+
+										<!-- Avatar Artiste cherché-->
+										<a href="profil.php?id=<?php echo $u['id'] ?>">
+											<?php if(!empty($u['avatar'])){?>
+												<img id="avatar_user" src="users/avatar/<?php echo$u['avatar']?>">
+											<?php } else {?>	
+												<img id="avatar_user" src="images/avatar.png">
+											<?php	} ?>
+										</a>
+										<!-- FIN - Avatar Artiste cherché-->
+
+										<!-- Nom Artiste cherché -->
+										<h5>
+											<a href="profil.php?id=<?php echo $u['id'] ?>"><? echo $u['firstname']." " . $u['lastname']; ?>
+										</h5>
+										<!-- FIN - Nom Artiste cherché -->
+
+								<?php }?>
+							</div>
+						</div>
+
+					</div>
+					
+					<hr>
+					
+				</div>
+    	</div>
+			<!-- FIN - Colonne publications -->
+
+  	</div>
+</div>
+<!-- FIN - Contenu Profil -->
+
     
-    <?php include("Parties/_footer.php");?>
+    
+	
+		<?php include("Parties/_footer.php");?>
 
 </body>
 

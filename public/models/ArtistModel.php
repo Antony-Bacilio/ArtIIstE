@@ -2,6 +2,8 @@
 session_start(); 
 require '../vendor/autoload.php';
 require 'config.php';
+
+
 /*********************************************  C O N N E X I O N  *****************************************************/
 if(isset($_POST['signIn'])){
 
@@ -17,6 +19,7 @@ if(isset($_POST['signIn'])){
         if($userexist == 1)
         {
 			$userinfo = $requser->fetch();
+
 			if($userinfo['confirm'] == 1)
 			{
 				$_SESSION['id'] = $userinfo['id'];
@@ -25,6 +28,7 @@ if(isset($_POST['signIn'])){
 			}
 			else if($userinfo['confirm'] == 2)
 			{
+
 				$_SESSION['id'] = $userinfo['id'];
 				$_SESSION['mail'] = $userinfo['mail'];
 				header("Location: ProfilAdmin.php?id=".$_SESSION['id']);
@@ -38,6 +42,9 @@ if(isset($_POST['signIn'])){
 			{
 				$msgWarning="Votre compte n'a pas encore été validé par l'administrateur !";
 			}
+			/* Ajout */
+			$_SESSION['firstname'] = $userinfo['firstname'];
+			$_SESSION['lastname'] = $userinfo['lastname'];
 		}
 		
 		else $msgWarning="Veuillez vérifier votre login ou password !";
@@ -266,6 +273,8 @@ if(isset($_POST['save'])){
    }
 
 }
+
+
 /************************ABONNEMENT*******************************************/
 
 if(isset($_POST['follow'])){
@@ -312,23 +321,5 @@ if(isset($_POST['unfollow'])){
 
 
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
