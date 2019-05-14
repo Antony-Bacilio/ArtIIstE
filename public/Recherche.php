@@ -137,10 +137,44 @@ if(isset($_GET['btn_search']) AND !empty($_GET['userRecherche'])) {
 				<br>
 				<h4>Derniers Artistes Inscrits</h4>
 
-				
-				<div class="input-group">
-					
+				<div class="col-md-4">
+					<!-- USERS LIST -->
+					<div class="box box-danger">
+						<div class="box-header with-border">
+							<h3 class="box-title"></h3>
+						</div>
+						<!-- /.box-header -->
+						<div class="box-body no-padding">
+							<ul class="users-list clearfix">
+								<?php $registres = $connection->prepare('SELECT * FROM "user" ORDER BY id DESC limit 5');
+										$registres->execute(array());
+
+								while($reg= $registres->fetch()) 
+								{
+								?>
+									<li>
+										<?php if(!empty($reg['avatar'])) {?>
+											<img id="avatar_nav" src="../users/avatar/<?php echo $reg['avatar']?>">
+										<?php } else { ?>	
+											<img id="avatar_nav" src="../images/avatar.png">
+										<?php } ?>
+										<a class="users-list-name" href="profil.php?id=<?php echo $reg['id']?>"><?php echo $reg['firstname']; ?></a>
+										<span class="users-list-date">Aujourd'hui</span>
+									</li>
+									<br>
+								<?php
+								}
+								?>
+							</ul>
+							<!-- /.users-list -->
+						</div>
+						<!-- /.box-footer -->
+					</div>
+					<!--/.box -->
 				</div>
+				<!-- /.col -->
+				<br>
+
 			</div>
 			<!-- FIN - Colonne Autres -->
 
