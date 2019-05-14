@@ -71,34 +71,41 @@
 		</header>
 	<!-- FIN - HEADER -->
 
-	<?php if($_SESSION['id']!= $id){ ?>
-		<form method = "POST">
-			<input type="submit" value="s'abonner" name="follow">
-			<input type="submit" value="désabonner" name="unfollow">
-		</form>
-	<?php } ?>
-	<?php 
-		if(isset($_POST['follow'])){ echo $error;}
-	    if(isset($_POST['unfollow'])){ echo $error;}
-	 ?>
+	
 
 	<!-- Liens -->
-	<div id="informations">
-		<nav>
-			<ul>
-			<li><a href="profil.php?id=<?php echo $_GET['id'] ?>">Profil</a></li>
-			<?php if($_SESSION['id']==$id) {?>
-				<li><a href="editProfil.php?id=<?php echo $_GET['id'] ?>" id="editProfil">Modifier votre profil</a></li>
-			<?php }?>
-			<li><a href ="FolowersList.php" id="followers">Abonnées</a></li>
-			<li><a href="FolowedList.php" id="following">Abonnements</a></li>
-			</ul>
-		</nav>
+	<div class="row">
+		
+		<div class="col-md-10">
+				<nav>
+					<ul>
+					<li><a href="profil.php?id=<?php echo $_GET['id'] ?>">Profil</a></li>
+					<?php if($_SESSION['id']==$id) {?>
+						<li><a href="editProfil.php?id=<?php echo $_GET['id'] ?>" id="editProfil">Modifier votre profil</a></li>
+					<?php }?>
+					<li><a href ="FolowersList.php" id="followers">Abonnées</a></li>
+					<li><a href="FolowedList.php" id="following">Abonnements</a></li>
+					</ul>
+				</nav>
 
-		<?php if(!empty($userinfo['description'])){?>
-			<h5 id="about-title">A propos de moi</h5>
-			<p><?php echo $userinfo['description'];?>
-		<?php }?>
+				<?php if(!empty($userinfo['description'])){?>
+					<h5 id="about-title">A propos de moi</h5>
+					<p><?php echo $userinfo['description'];?>
+				<?php }?>
+		</div>
+		<div class="col-md-2">
+				<?php if($_SESSION['id']!= $id){ ?>
+				<form method = "POST">
+					<input type="submit" value="s'abonner" name="follow" class="btn btn-success">
+					<input type="submit" value="désabonner" name="unfollow" class="btn btn-outline-danger">
+				</form>
+				<?php } ?>
+				<?php 
+					if(isset($_POST['follow'])){ echo "<p id=\"error\">".$error."</p>";}
+					if(isset($_POST['unfollow'])){ echo "<p id=\"error\">".$error."</p>";}
+				?>
+		</div>
+
 	</div>
 	<!-- FIN - Liens -->
 

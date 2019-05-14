@@ -1,37 +1,3 @@
-<?php
-
-require '../vendor/autoload.php';
-require 'config.php';
-include('models/ArtistModel.php');
-
-
-if(isset($_GET['btn_search']) AND !empty($_GET['userRecherche'])) {
-
-  	$userRecherche = htmlspecialchars($_GET['userRecherche']);	  
-		$name = explode(' ', $userRecherche);
-
-		if(sizeof($name)==1){
-
-			$requserR = $connection->prepare('SELECT * FROM "user" WHERE firstname= ? OR lastname= ? OR mail= ?');
-			$requserR->execute(array($userRecherche, $userRecherche,$userRecherche));
-
-		}else{
-
-			$requserR = $connection->prepare('SELECT * FROM "user" WHERE firstname= ? OR lastname= ?  OR firstname= ? OR lastname= ?');
-		 	$requserR->execute(array($name[0],$name[1],$name[1],$name[0]));
-
-		}
-		 
-	  //$possibleUsers = $requserR->fetch();
-		
-}
-//else header("Location : profil.php?id=".$_SESSION['id']);
-
-
-?>
-
-
-
 <!DOCTYPE html>
 <html lang="fr">
 
@@ -147,19 +113,18 @@ if(isset($_GET['btn_search']) AND !empty($_GET['userRecherche'])) {
 
 			<!-- Colonne publications -->
 			<div class="col-sm-9 bg-light" id="pub_profil">
-				<div class="">
 
 					<div class="container-fluid" >
 
 						<div id="userSearch" class="container mt-5">
-							<h3>Artistes trouvés: </h3>
+                            <h3>Artistes qui vous suivent : </h3>
 							<div class="">
-								<?php while($u = $requserR->fetch()) { ?>
+								<?php while($a = $req->fetch()) { ?>
 
 										<!-- Avatar Artiste cherché-->
-										<a href="profil.php?id=<?php echo $u['id'] ?>">
-											<?php if(!empty($u['avatar'])){?>
-												<img id="avatar_user" src="users/avatar/<?php echo$u['avatar']?>">
+										<a href="profil.php?id=<?php echo $a['abonne'] ?>">
+											<?php if(!empty($a['avatar'])){?>
+												<img id="avatar_user" src="users/avatar/<?php echo $a['avatar']?>">
 											<?php } else {?>	
 												<img id="avatar_user" src="images/avatar.png">
 											<?php	} ?>
@@ -168,7 +133,7 @@ if(isset($_GET['btn_search']) AND !empty($_GET['userRecherche'])) {
 
 										<!-- Nom Artiste cherché -->
 										<h5>
-											<a href="profil.php?id=<?php echo $u['id'] ?>"><? echo $u['firstname']." " . $u['lastname']; ?>
+											<a href="profil.php?id=<?php echo $a['abonne'] ?>"><? echo $a['firstname']." " . $a['lastname']; ?>
 										</h5>
 										<!-- FIN - Nom Artiste cherché -->
 
@@ -179,19 +144,15 @@ if(isset($_GET['btn_search']) AND !empty($_GET['userRecherche'])) {
 					</div>
 					
 					<hr>
-					
-				</div>
-    	</div>
+
+    		</div>
 			<!-- FIN - Colonne publications -->
 
   	</div>
 </div>
 <!-- FIN - Contenu Profil -->
 
-    
-    
-	
-		<?php include("Parties/_footer.php");?>
+<?php include("Parties/_footer.php");?>
 
 </body>
 

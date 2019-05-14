@@ -244,6 +244,7 @@ color:#C8C6C7;
 	border-radius: 5px;
 	border-style: solid;
 	border-width: 1px;
+	opacity: 0.9;
 
 }
 
@@ -300,6 +301,14 @@ color:#C8C6C7;
 	padding:10px;
 
 
+}
+
+#error{
+
+	font-size:12pt;
+	font-weight: bold;
+	text-align: center;
+   
 }
 
 #foot_profil{

@@ -275,30 +275,30 @@ if(isset($_POST['save'])){
 }
 
 
-/************************ABONNEMENT*******************************************/
+/************************ ABONNEMENT *******************************************/
 
 if(isset($_POST['follow'])){
 
 	$getid=$_GET['id'];
 	$req = $connection->prepare('SELECT * FROM "Abonnement" WHERE abonne = ? AND abonnement = ?');
-        $req->execute(array($_SESSION['id'],$getid));
+    	$req->execute(array($_SESSION['id'],$getid));
+	
 	$exist = $req->rowCount();
+
 	if($exist ==0){
 
 		$insertmbr = $connection->prepare('INSERT INTO "Abonnement" (abonne, abonnement) VALUES (?,?)');
-                $insertmbr->execute(array($_SESSION['id'],$getid));
-                $error= "Vous êtes bien abonné";
+        	$insertmbr->execute(array($_SESSION['id'],$getid));
+    	$error= "Vous êtes bien abonné";
 
 	}
-	else{
+	else $error= "Vous êtes déjà abonnée à cet Artiste !";
 
-		 $error= "Vous êtes déjà abonnée à ce compte";
-	}
 
 
 }
 
-/************************UNFOLLOW*******************************************/
+/************************ UNFOLLOW *******************************************/
 
 
 if(isset($_POST['unfollow'])){
@@ -307,6 +307,7 @@ if(isset($_POST['unfollow'])){
 	$req = $connection->prepare('SELECT * FROM "Abonnement" WHERE abonne = ? AND abonnement = ?');
         $req->execute(array($_SESSION['id'],$getid));
 	$exist = $req->rowCount();
+
 	if($exist !=0){
 
 		$insertmbr = $connection->prepare('DELETE FROM "Abonnement" WHERE abonne = ? AND abonnement = ?');
@@ -314,10 +315,7 @@ if(isset($_POST['unfollow'])){
                 $error= "Vous êtes bien désabonné";
 
 	}
-	else{
-
-		 $error= "Vous n'êtes pas abonnée à ce compte";
-	}
+	else $error= "Vous n'êtes pas abonnée à cet Artiste !";
 
 
 }
