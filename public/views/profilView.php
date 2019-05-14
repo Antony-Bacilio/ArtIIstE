@@ -90,8 +90,8 @@
 			<?php if($_SESSION['id']==$id) {?>
 				<li><a href="editProfil.php?id=<?php echo $_GET['id'] ?>" id="editProfil">Modifier votre profil</a></li>
 			<?php }?>
-			<li><a href ="FollowersList.php" id="followers">Abonnées</a></li>
-			<li><a href="FollowedList.php" id="following">Abonnements</a></li>
+			<li><a href ="FolowersList.php" id="followers">Abonnées</a></li>
+			<li><a href="FolowedList.php" id="following">Abonnements</a></li>
 			</ul>
 		</nav>
 

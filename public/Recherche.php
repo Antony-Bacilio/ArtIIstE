@@ -95,12 +95,12 @@ if(isset($_GET['btn_search']) AND !empty($_GET['userRecherche'])) {
 	<div id="informations">
 		<nav>
 			<ul>
-			<li><a href="profil.php?id=<?php echo $_SESSION['id'] ?>" role="button" class="btn">profil</a></li>
+			<li><a href="profil.php?id=<?php echo $_SESSION['id'] ?>">Profil</a></li>
 			<?php if($_SESSION['id']==$id) {?>
-			<li><a href="editProfil.php?id=<?php echo $_SESSION['id'] ?>" id="editProfil">Modifier votre profile</a></li>
+				<li><a href="editProfil.php?id=<?php echo $_SESSION['id'] ?>" id="editProfil">Modifier votre profil</a></li>
 			<?php }?>
-			<li><a href ="" id="followers">Abonnées</a></li>
-			<li><a href="" id="following">Abonnements</a></li>
+			<li><a href ="FolowersList.php" id="followers">Abonnées</a></li>
+			<li><a href="FolowedList.php" id="following">Abonnements</a></li>
 			</ul>
 		</nav>
 
