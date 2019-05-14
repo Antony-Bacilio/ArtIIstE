@@ -10,7 +10,6 @@
 		$requser = $connection->prepare('SELECT * FROM "user" WHERE id = ? ');
 		$requser->execute(array($id));
 		$userinfo = $requser->fetch();
-
 		$reqpub = $connection->prepare('SELECT * FROM "Publication" WHERE user_id = ? ORDER BY id DESC');
 		$reqpub->execute(array($id));
 	?>
@@ -20,17 +19,13 @@
 
 
 	<?php
-
 		if (isset($_GET['id']) && $_GET['id'] >0){
-
 				$id = $_GET['id'];
 				$requser = $connection->prepare('SELECT * FROM "user" WHERE id = ? ');
 				$requser->execute(array($id));
 				$userinfo = $requser->fetch();
-
 				$reqpub = $connection->prepare('SELECT * FROM "Publication" WHERE user_id = ? ORDER BY id DESC');
 				$reqpub->execute(array($id));
-
 		}
 	?>
 
@@ -83,15 +78,12 @@
 					<?php if($_SESSION['id']==$id) {?>
 						<li><a href="editProfil.php?id=<?php echo $_GET['id'] ?>" id="editProfil">Modifier votre profil</a></li>
 					<?php }?>
-					<li><a href ="FolowersList.php" id="followers">Abonnées</a></li>
-					<li><a href="FolowedList.php" id="following">Abonnements</a></li>
+					<li><a href ="FolowersList.php?id=<?php echo $_GET['id']?>" id="followers">Abonnées</a></li>
+					<li><a href="FolowedList.php?id=<?php echo $_GET['id']?>" id="following">Abonnements</a></li>
 					</ul>
 				</nav>
 
-				<?php if(!empty($userinfo['description'])){?>
-					<h5 id="about-title">A propos de moi</h5>
-					<p><?php echo $userinfo['description'];?>
-				<?php }?>
+				
 		</div>
 		<div class="col-md-2">
 				<?php if($_SESSION['id']!= $id){ ?>
@@ -131,7 +123,6 @@
 							<ul class="users-list clearfix">
 								<?php $registres = $connection->prepare('SELECT * FROM "user" ORDER BY id DESC limit 5');
 										$registres->execute(array());
-
 								while($reg= $registres->fetch()) 
 								{
 								?>
@@ -170,8 +161,8 @@
 
 						<!-- Ecriture Status Personel-->
 						<?php if($_SESSION['id']==$id) {?>
-										<form method="POST" enctype="multipart/form-data">
-											<textarea class="form-control border-primary" type=text name="topic_description" placeholder="Quoi de neuf ?..."></textarea>
+									<form method="POST" enctype="multipart/form-data">
+					<textarea class="form-control border-primary" type=text name="topic_description" placeholder="Quoi de neuf ?..."></textarea>
 											<input type="file" name="photo" class="btn btn-light m-2" id="btn_parcourir" >
 											<input type="submit" name="partager" value="Partager" class="btn btn-success">
 										</form>
@@ -203,7 +194,7 @@
 
 									<!-- Entête Publication -->
 									<a href="profil.php?id=<?php echo $_GET['id'] ?>">
-										<img src="users/avatar/<?php echo $userinfo['avatar']?>" class="mr-3 mt-3 rounded-circle" style="width:60px;">
+						<img src="users/avatar/<?php echo $userinfo['avatar']?>" class="mr-3 mt-3 rounded-circle" style="width:60px;">
 									</a>
 									<div class="media-body">
 											<h4>
@@ -280,4 +271,3 @@
 
 </body>
 </html>
-

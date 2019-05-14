@@ -1,15 +1,13 @@
 <?php
 require '../vendor/autoload.php';
 require 'config.php';
-
-
 /********************************AJOUT DES PUBLICATIONS*****************************************************/
 if(isset($_POST['partager'])){
 
     // Pour empêcher les injections de code HTML !
     $description = htmlspecialchars($_POST['topic_description']);
     $id = $_GET['id'];
-	if(isset ($_FILES['photo']) AND !empty($_FILES['photo']['name'])){
+if(isset ($_FILES['photo']) AND !empty($_FILES['photo']['name'])){
 
 		//taille maximum d'un fichier qu'on peut importer
 		$maxSize= 2097152;
@@ -48,15 +46,5 @@ if(isset($_POST['partager'])){
 		else echo"votre photo ne doit pas dépasser 2 Mo";
 
 	}
-}
-
-
-/**********************************************LES LIKES*********************************************************/
-
-if(isset($_POST['like'])){
-
-	$aimer=$connection->prepare('UPDATE "Publication" SET aime=aime+1');	
-	$aimer->execute();
-
 }
 

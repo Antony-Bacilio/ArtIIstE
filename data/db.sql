@@ -18,9 +18,7 @@ CREATE TABLE "Publication" (
     user_id INTEGER,
     description VARCHAR,
     photo Varchar,
-    date_pub date,
-    nb_likes INTEGER DEFAULT 0,
-    user_like_id INTEGER
+    date_pub date
 );
 
 

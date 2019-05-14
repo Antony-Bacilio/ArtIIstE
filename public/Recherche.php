@@ -106,10 +106,7 @@ if(isset($_GET['btn_search']) AND !empty($_GET['userRecherche'])) {
 					</ul>
 				</nav>
 
-				<?php if(!empty($userinfo['description'])){?>
-					<h5 id="about-title">A propos de moi</h5>
-					<p><?php echo $userinfo['description'];?>
-				<?php }?>
+				
 		</div>
 		<div class="col-md-2">
 				<?php if($_SESSION['id']!= $id){ ?>

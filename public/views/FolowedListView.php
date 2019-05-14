@@ -1,22 +1,38 @@
 <!DOCTYPE html>
-<html lang="fr">
+<html>
 
 <?php include("Parties/_head.php"); ?>
 
 <body>
 
 	<?php
-			$id=$_SESSION['id'];
-			$requser = $connection->prepare('SELECT * FROM "user" WHERE id = ? ');
-			$requser->execute(array($id));
-			$userinfo = $requser->fetch();
+		$id = $_SESSION['id'];
+		$requser = $connection->prepare('SELECT * FROM "user" WHERE id = ? ');
+		$requser->execute(array($id));
+		$userinfo = $requser->fetch();
 
-			$reqpub = $connection->prepare('SELECT * FROM "Publication" WHERE user_id = ? ORDER BY id DESC');
-			$reqpub->execute(array($id));
-		?>
+		$reqpub = $connection->prepare('SELECT * FROM "Publication" WHERE user_id = ? ORDER BY id DESC');
+		$reqpub->execute(array($id));
+	?>
 
+	<!-- Barre de Navigation-->
 	<?php include("Parties/_nav.php");?>
 
+
+	<?php
+
+		if (isset($_GET['id']) && $_GET['id'] >0){
+
+				$id = $_GET['id'];
+				$requser = $connection->prepare('SELECT * FROM "user" WHERE id = ? ');
+				$requser->execute(array($id));
+				$userinfo = $requser->fetch();
+
+				$reqpub = $connection->prepare('SELECT * FROM "Publication" WHERE user_id = ? ORDER BY id DESC');
+				$reqpub->execute(array($id));
+
+		}
+	?>
 
 	<!-- HEADER -->
 
@@ -35,11 +51,11 @@
 
 			<div id="user-informations">
 
-			<!-- Profil image -->
+				<!-- Profil image -->
 				<?php 
 				if(!empty($userinfo['avatar']))
 				{?>
-				<img id="avatar" src="users/avatar/<?php echo $userinfo['avatar']?>">
+				<img id="avatar" src="users/avatar/<?php echo$userinfo['avatar']?>">
 				<?php 
 				} else {
 				?>	
@@ -55,7 +71,7 @@
 		</header>
 	<!-- FIN - HEADER -->
 
-
+	
 
 	<!-- Liens -->
 	<div class="row">
@@ -63,19 +79,16 @@
 		<div class="col-md-10">
 				<nav>
 					<ul>
-					<li><a href="profil.php?id=<?php echo $_SESSION['id'] ?>">Profil</a></li>
+					<li><a href="profil.php?id=<?php echo $_GET['id'] ?>">Profil</a></li>
 					<?php if($_SESSION['id']==$id) {?>
-						<li><a href="editProfil.php?id=<?php echo $_SESSION['id'] ?>" id="editProfil">Modifier votre profil</a></li>
+						<li><a href="editProfil.php?id=<?php echo $_GET['id'] ?>" id="editProfil">Modifier votre profil</a></li>
 					<?php }?>
-					<li><a href ="FolowersList.php" id="followers">Abonnées</a></li>
-					<li><a href="FolowedList.php" id="following">Abonnements</a></li>
+					<li><a href ="FolowersList.php?id=<?php echo $_GET['id']?>" id="followers">Abonnées</a></li>
+					<li><a href="FolowedList.php?id=<?php echo $_GET['id']?>" id="following">Abonnements</a></li>
 					</ul>
 				</nav>
 
-				<?php if(!empty($userinfo['description'])){?>
-					<h5 id="about-title">A propos de moi</h5>
-					<p><?php echo $userinfo['description'];?>
-				<?php }?>
+				
 		</div>
 		<div class="col-md-2">
 				<?php if($_SESSION['id']!= $id){ ?>
@@ -167,7 +180,7 @@
 
 										<!-- Nom Artiste cherché -->
 										<h5>
-											<a href="profil.php?id=<?php echo $a['abonnement'] ?>"><? echo $a['firstname']." " . $a['lastname']; ?>
+							<a href="profil.php?id=<?php echo $a['abonnement'];?>"> <?php echo $a['firstname']." ".$a['lastname'];?></a>
 										</h5>
 										<!-- FIN - Nom Artiste cherché -->
 

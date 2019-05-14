@@ -59,8 +59,8 @@ $id = intval($_SESSION['id']);
 			<ul>
 			<li><a href="profil.php?id=<?php echo $_GET['id'] ?>" role="button">Profil</a></li>
 			<!--<li><a href ="editProfil.php"id="editProfil">Modifier</a></li>-->
-			<li><a href ="" id="followers">Abonnées</a></li>
-			<li><a href="" id="following">Abonnements</a></li>
+			<li><a href ="FolowersList.php?id=<?php echo $_GET['id']?>" id="followers">Abonnées</a></li>
+			<li><a href="FolowedList.php?id=<?php echo $_GET['id']?>" id="following">Abonnements</a></li>
 			</ul>
 		</nav>
 	</div>
